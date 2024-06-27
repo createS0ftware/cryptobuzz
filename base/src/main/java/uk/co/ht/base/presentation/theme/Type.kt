@@ -1,4 +1,4 @@
-package uk.co.ht.cyberbuzz.ui.theme
+package uk.co.ht.base.presentation.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

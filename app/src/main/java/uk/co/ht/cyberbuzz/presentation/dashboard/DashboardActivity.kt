@@ -1,4 +1,4 @@
-package uk.co.ht.cyberbuzz
+package uk.co.ht.cyberbuzz.presentation.dashboard
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,9 +10,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import uk.co.ht.cyberbuzz.ui.theme.CyberBuzzTheme
+import uk.co.ht.base.presentation.theme.CyberBuzzTheme
 
-class MainActivity : ComponentActivity() {
+class DashboardActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -40,7 +40,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    CyberBuzzTheme {
+    uk.co.ht.base.presentation.theme.CyberBuzzTheme {
         Greeting("Cyber Buzz")
     }
 }
