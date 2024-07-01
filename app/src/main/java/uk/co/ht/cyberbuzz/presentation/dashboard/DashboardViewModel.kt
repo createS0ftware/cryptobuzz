@@ -1,4 +1,4 @@
-package uk.co.ht.cyberbuzz.presentation.dashboard
+package uk.co.ht.cryptobuzz.presentation.dashboard
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -10,11 +10,11 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import uk.co.ht.base.domain.repository.CoinCapRepositoryResult
 import uk.co.ht.base.domain.repository.CoinCapRepositoryResult.*
-import uk.co.ht.cyberbuzz.R
-import uk.co.ht.cyberbuzz.domain.models.CoinData
-import uk.co.ht.cyberbuzz.domain.models.ExchangeData
-import uk.co.ht.cyberbuzz.domain.usecases.CoinUseCase
-import uk.co.ht.cyberbuzz.domain.usecases.ExchangeUseCase
+import uk.co.ht.cryptobuzz.R
+import uk.co.ht.cryptobuzz.domain.models.CoinData
+import uk.co.ht.cryptobuzz.domain.models.ExchangeData
+import uk.co.ht.cryptobuzz.domain.usecases.CoinUseCase
+import uk.co.ht.cryptobuzz.domain.usecases.ExchangeUseCase
 import java.text.DecimalFormat
 import javax.inject.Inject
 
@@ -87,5 +87,4 @@ class DashboardViewModel @Inject constructor(
     fun clickedExchange() {
             getTopTenExchanges()
     }
-
 }

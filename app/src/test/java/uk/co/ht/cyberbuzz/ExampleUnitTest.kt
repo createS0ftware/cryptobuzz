@@ -1,4 +1,4 @@
-package uk.co.ht.cyberbuzz
+package uk.co.ht.cryptobuzz
 
 import org.junit.Test
 

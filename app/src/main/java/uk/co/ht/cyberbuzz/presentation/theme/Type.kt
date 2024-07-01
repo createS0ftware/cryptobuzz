@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package uk.co.ht.cyberbuzz.presentation.theme
+package uk.co.ht.cryptobuzz.presentation.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle
@@ -22,7 +22,7 @@ import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
-import uk.co.ht.cyberbuzz.R
+import uk.co.ht.cryptobuzz.R
 
 private val Montserrat = FontFamily(
     Font(R.font.montserrat_light, FontWeight.Light),

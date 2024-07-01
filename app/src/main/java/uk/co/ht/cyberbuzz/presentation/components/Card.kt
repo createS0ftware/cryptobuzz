@@ -1,4 +1,4 @@
-package uk.co.ht.cyberbuzz.presentation.components
+package uk.co.ht.cryptobuzz.presentation.components
 
 import android.content.res.Configuration
 import androidx.compose.foundation.BorderStroke
@@ -19,15 +19,15 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
-import uk.co.ht.cyberbuzz.R
-import uk.co.ht.cyberbuzz.presentation.theme.CyberBuzzTheme
+import uk.co.ht.cryptobuzz.R
+import uk.co.ht.cryptobuzz.presentation.theme.MaterialTheme
 
 @Composable
 fun DataUICard(
     modifier: Modifier = Modifier,
     shape: Shape = MaterialTheme.shapes.medium,
-    color: Color = CyberBuzzTheme.colors.uiBackground,
-    contentColor: Color = CyberBuzzTheme.colors.textPrimary,
+    color: Color = MaterialTheme.colors.surface,
+    contentColor: Color = MaterialTheme.colors.primary,
     border: BorderStroke? = null,
     elevation: Dp = 4.dp,
     content: @Composable () -> Unit
@@ -74,7 +74,7 @@ fun CoinDataImage(
 @Preview("large font", fontScale = 2f)
 @Composable
 private fun CardPreview() {
-    CyberBuzzTheme {
+    MaterialTheme {
         DataUICard {
             Text(text = "Demo", modifier = Modifier.padding(16.dp))
         }

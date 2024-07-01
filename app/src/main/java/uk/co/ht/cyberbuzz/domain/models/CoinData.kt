@@ -1,4 +1,4 @@
-package uk.co.ht.cyberbuzz.domain.models
+package uk.co.ht.cryptobuzz.domain.models
 
 import androidx.compose.runtime.Immutable
 

@@ -1,10 +1,10 @@
-package uk.co.ht.cyberbuzz.domain.usecases
+package uk.co.ht.cryptobuzz.domain.usecases
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import uk.co.ht.base.domain.repository.CoinCapRepository
 import uk.co.ht.base.domain.repository.CoinCapRepositoryResult
-import uk.co.ht.cyberbuzz.domain.models.ExchangeData
+import uk.co.ht.cryptobuzz.domain.models.ExchangeData
 import javax.inject.Inject
 
 class ExchangeUseCase @Inject constructor(private val repository: CoinCapRepository) {

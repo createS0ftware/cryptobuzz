@@ -1,4 +1,4 @@
-package uk.co.ht.cyberbuzz.data
+package uk.co.ht.cryptobuzz.data
 
 import android.app.Application
 import android.content.Context
@@ -14,10 +14,10 @@ import uk.co.ht.base.common.BuildVariableProvider
 import uk.co.ht.base.data.network.APIService
 import uk.co.ht.base.data.network.CoinCapRepositoryImpl
 import uk.co.ht.base.domain.repository.CoinCapRepository
-import uk.co.ht.cyberbuzz.CyberBuzzApplication
-import uk.co.ht.cyberbuzz.common.BuildVariableProviderImpl
-import uk.co.ht.cyberbuzz.domain.usecases.CoinUseCase
-import uk.co.ht.cyberbuzz.domain.usecases.ExchangeUseCase
+import uk.co.ht.cryptobuzz.CyberBuzzApplication
+import uk.co.ht.cryptobuzz.common.BuildVariableProviderImpl
+import uk.co.ht.cryptobuzz.domain.usecases.CoinUseCase
+import uk.co.ht.cryptobuzz.domain.usecases.ExchangeUseCase
 
 @Module
 @InstallIn(SingletonComponent::class)

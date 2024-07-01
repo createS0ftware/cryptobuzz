@@ -1,4 +1,4 @@
-package uk.co.ht.cyberbuzz.data
+package uk.co.ht.cryptobuzz.data
 
 import ResultCallAdapterFactory
 import dagger.Module

@@ -1,4 +1,4 @@
-package uk.co.ht.cyberbuzz.presentation.dashboard
+package uk.co.ht.cryptobuzz.presentation.dashboard
 
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.core.tween
@@ -50,13 +50,13 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import uk.co.ht.cyberbuzz.R
-import uk.co.ht.cyberbuzz.domain.models.CoinData
-import uk.co.ht.cyberbuzz.presentation.UIState
-import uk.co.ht.cyberbuzz.presentation.components.DataUICard
-import uk.co.ht.cyberbuzz.presentation.components.CoinDataImage
-import uk.co.ht.cyberbuzz.presentation.components.UpdateTextDisplay
-import uk.co.ht.cyberbuzz.presentation.theme.CyberBuzzTheme
+import uk.co.ht.cryptobuzz.R
+import uk.co.ht.cryptobuzz.domain.models.CoinData
+import uk.co.ht.cryptobuzz.presentation.UIState
+import uk.co.ht.cryptobuzz.presentation.components.DataUICard
+import uk.co.ht.cryptobuzz.presentation.components.CoinDataImage
+import uk.co.ht.cryptobuzz.presentation.components.UpdateTextDisplay
+import uk.co.ht.cryptobuzz.presentation.theme.MaterialTheme
 
 
 private val HighlightCardWidth = 170.dp
@@ -190,7 +190,7 @@ fun DashboardGrid(
                                             textAlign = TextAlign.Center,
                                             overflow = TextOverflow.Ellipsis,
                                             lineHeight = TextUnit(16.0F, TextUnitType.Sp),
-                                            color = CyberBuzzTheme.colors.textSecondary
+                                            color = MaterialTheme.colors.primary
                                         )
                                     },
                                     modifier = Modifier
@@ -209,7 +209,7 @@ fun DashboardGrid(
                                             textAlign = TextAlign.End,
                                             overflow = TextOverflow.Ellipsis,
                                             lineHeight = TextUnit(16.0F, TextUnitType.Sp),
-                                            color = CyberBuzzTheme.colors.textHelp
+                                            color = MaterialTheme.colors.primary
                                         )
                                     },
                                     modifier = Modifier
@@ -264,7 +264,7 @@ fun DashboardGrid(
                                 overflow = TextOverflow.Ellipsis,
                                 lineHeight = TextUnit(16.0F, TextUnitType.Sp),
                                 style = MaterialTheme.typography.subtitle2,
-                                color = CyberBuzzTheme.colors.textSecondary,
+                                color = MaterialTheme.colors.primary,
                                 modifier = Modifier.padding(horizontal = 16.dp)
                             )
                             Spacer(modifier = Modifier.width(8.dp))
@@ -272,7 +272,7 @@ fun DashboardGrid(
                                 text = "Coin % Two", //coinData.percentChange,
                                 style = MaterialTheme.typography.caption,
                                 lineHeight = TextUnit(16.0F, TextUnitType.Sp),
-                                color = CyberBuzzTheme.colors.textHelp,
+                                color = MaterialTheme.colors.secondary,
                                 textAlign = TextAlign.Right,
                                 modifier = Modifier
                                     .fillMaxWidth()
@@ -328,7 +328,7 @@ fun DashboardGrid(
                                 overflow = TextOverflow.Ellipsis,
                                 lineHeight = TextUnit(16.0F, TextUnitType.Sp),
                                 style = MaterialTheme.typography.subtitle2,
-                                color = CyberBuzzTheme.colors.textSecondary,
+                                color = MaterialTheme.colors.primary,
                                 modifier = Modifier
                                     .weight(0.5f)
                                     .padding(start = 10.dp),
@@ -338,7 +338,7 @@ fun DashboardGrid(
                                 text = "$2.2 MIllion", //coinData.percentChange,
                                 style = MaterialTheme.typography.caption,
                                 lineHeight = TextUnit(16.0F, TextUnitType.Sp),
-                                color = CyberBuzzTheme.colors.textHelp,
+                                color = MaterialTheme.colors.secondary,
                                 textAlign = TextAlign.End,
                                 modifier = Modifier
                                     .weight(0.5f)
@@ -392,7 +392,7 @@ fun DashboardGrid(
                                 overflow = TextOverflow.Ellipsis,
                                 lineHeight = TextUnit(16.0F, TextUnitType.Sp),
                                 style = MaterialTheme.typography.subtitle2,
-                                color = CyberBuzzTheme.colors.textSecondary,
+                                color = MaterialTheme.colors.primary,
                                 modifier = Modifier
                                     .weight(0.5f)
                                     .fillMaxWidth()
@@ -403,7 +403,7 @@ fun DashboardGrid(
                                 text = "Exchange Two Volume", //coinData.percentChange,
                                 style = MaterialTheme.typography.caption,
                                 lineHeight = TextUnit(16.0F, TextUnitType.Sp),
-                                color = CyberBuzzTheme.colors.textHelp,
+                                color = MaterialTheme.colors.secondary,
                                 textAlign = TextAlign.Right,
                                 modifier = Modifier
                                     .fillMaxWidth()
@@ -428,8 +428,8 @@ private fun HighlightedCoinDataVIew(
 ) {
     val scroll = rememberScrollState(0)
     val gradient = when ((index / 2) % 2) {
-        0 -> CyberBuzzTheme.colors.gradient6_1
-        else -> CyberBuzzTheme.colors.gradient6_2
+        0 -> MaterialTheme.colors.onSurface
+        else -> MaterialTheme.colors.onSecondary
     }
     // The Cards show a gradient which spans 3 cards and scrolls with parallax.
     val gradientWidth = with(LocalDensity.current) {
@@ -511,7 +511,7 @@ private fun HighlightedCoinDataUIItem(
                     overflow = TextOverflow.Ellipsis,
                     lineHeight = TextUnit(16.0F, TextUnitType.Sp),
                     style = MaterialTheme.typography.subtitle2,
-                    color = CyberBuzzTheme.colors.textSecondary,
+                    color = MaterialTheme.colors.primary,
                     modifier = Modifier
                         .fillMaxWidth()
                         .weight(0.5f)
@@ -522,7 +522,7 @@ private fun HighlightedCoinDataUIItem(
                     text = coinData.percentChange,
                     style = MaterialTheme.typography.caption,
                     lineHeight = TextUnit(16.0F, TextUnitType.Sp),
-                    color = CyberBuzzTheme.colors.textHelp,
+                    color = MaterialTheme.colors.secondary,
                     textAlign = TextAlign.Right,
                     modifier = Modifier
                         .weight(0.5f)
@@ -538,7 +538,7 @@ private fun HighlightedCoinDataUIItem(
 @Composable
 fun HighlightedCoinDataUIItemPreview() {
 
-    CyberBuzzTheme {
+    MaterialTheme {
         Row(
             horizontalArrangement = Arrangement.Center,
             modifier = Modifier

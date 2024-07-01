@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package uk.co.ht.cyberbuzz.presentation.theme
+package uk.co.ht.cryptobuzz.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 

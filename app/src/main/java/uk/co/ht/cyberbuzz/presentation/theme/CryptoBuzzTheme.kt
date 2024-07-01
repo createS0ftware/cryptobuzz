@@ -1,8 +1,10 @@
-package uk.co.ht.cyberbuzz.presentation.theme
+package uk.co.ht.cryptobuzz.presentation.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.Colors
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.darkColors
+import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.SideEffect
@@ -16,7 +18,7 @@ import androidx.compose.ui.graphics.Color
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 
-private val LightColorPalette = CyberBuzzColors(
+private val LightColorPalette = CryptoBuzzColours(
     brand = Shadow5,
     brandSecondary = Ocean3,
     uiBackground = Neutral0,
@@ -41,7 +43,7 @@ private val LightColorPalette = CyberBuzzColors(
     isDark = false
 )
 
-private val DarkColorPalette = CyberBuzzColors(
+private val DarkColorPalette = CryptoBuzzColours(
     brand = Shadow1,
     brandSecondary = Ocean2,
     uiBackground = Neutral8,
@@ -68,41 +70,61 @@ private val DarkColorPalette = CyberBuzzColors(
     isDark = true
 )
 
+private val LightColors = lightColors(
+    primary = Ocean7,
+    primaryVariant = Ocean5,
+    secondary = Lavender7,
+    secondaryVariant = Lavender5,
+    background = Neutral0,
+    surface = Neutral0,
+    onPrimary = Neutral0,
+    onSecondary = Neutral0,
+    onBackground = Neutral7,
+    onSurface = Neutral7
+)
+
+private val DarkColors = darkColors(
+    primary = Ocean7,
+    primaryVariant = Ocean5,
+    secondary = Lavender7,
+    secondaryVariant = Lavender5,
+    background = Neutral8,
+    surface = Neutral8,
+    onPrimary = Neutral0,
+    onSecondary = Neutral0,
+    onBackground = Neutral0,
+    onSurface = Neutral0
+)
+
 @Composable
-fun CyberBuzzTheme(
+fun MaterialTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
-    val colors = if (darkTheme) DarkColorPalette else LightColorPalette
+    val colors = if (darkTheme) DarkColors else LightColors
 
     val sysUiController = rememberSystemUiController()
     SideEffect {
         sysUiController.setSystemBarsColor(
-            color = colors.uiBackground.copy(alpha = AlphaNearOpaque)
+            color = colors.background.copy(alpha = AlphaNearOpaque)
         )
     }
 
-    ProvideCyberBuzzColors(colors) {
         MaterialTheme(
-            colors = debugColors(darkTheme),
+            colors = colors,
             typography = Typography,
             shapes = Shapes,
             content = content
         )
     }
-}
 
-object CyberBuzzTheme {
-    val colors: CyberBuzzColors
-        @Composable
-        get() = LocalCyberBuzzColors.current
-}
+
 
 /**
- * CyberBuzz custom Color Palette
+ * Jetsnack custom Color Palette
  */
 @Stable
-class CyberBuzzColors(
+class CryptoBuzzColours(
     gradient6_1: List<Color>,
     gradient6_2: List<Color>,
     gradient3_1: List<Color>,
@@ -189,7 +211,7 @@ class CyberBuzzColors(
     var isDark by mutableStateOf(isDark)
         private set
 
-    fun update(other: CyberBuzzColors) {
+    fun update(other: CryptoBuzzColours) {
         gradient6_1 = other.gradient6_1
         gradient6_2 = other.gradient6_2
         gradient3_1 = other.gradient3_1
@@ -220,7 +242,7 @@ class CyberBuzzColors(
         isDark = other.isDark
     }
 
-    fun copy(): CyberBuzzColors = CyberBuzzColors(
+    fun copy(): CryptoBuzzColours = CryptoBuzzColours(
         gradient6_1 = gradient6_1,
         gradient6_2 = gradient6_2,
         gradient3_1 = gradient3_1,
@@ -251,44 +273,3 @@ class CyberBuzzColors(
         isDark = isDark,
     )
 }
-
-@Composable
-fun ProvideCyberBuzzColors(
-    colors: CyberBuzzColors,
-    content: @Composable () -> Unit
-) {
-    val colorPalette = remember {
-        // Explicitly creating a new object here so we don't mutate the initial [colors]
-        // provided, and overwrite the values set in it.
-        colors.copy()
-    }
-    colorPalette.update(colors)
-    CompositionLocalProvider(LocalCyberBuzzColors provides colorPalette, content = content)
-}
-
-private val LocalCyberBuzzColors = staticCompositionLocalOf<CyberBuzzColors> {
-    error("No CyberBuzzColorPalette provided")
-}
-
-/**
- * A Material [Colors] implementation which sets all colors to [debugColor] to discourage usage of
- * [MaterialTheme.colors] in preference to [CyberBuzzTheme.colors].
- */
-fun debugColors(
-    darkTheme: Boolean,
-    debugColor: Color = Color.Magenta
-) = Colors(
-    primary = debugColor,
-    primaryVariant = debugColor,
-    secondary = debugColor,
-    secondaryVariant = debugColor,
-    background = debugColor,
-    surface = debugColor,
-    error = debugColor,
-    onPrimary = debugColor,
-    onSecondary = debugColor,
-    onBackground = debugColor,
-    onSurface = debugColor,
-    onError = debugColor,
-    isLight = !darkTheme
-)

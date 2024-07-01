@@ -1,4 +1,4 @@
-package uk.co.ht.cyberbuzz
+package uk.co.ht.cryptobuzz
 
 import android.app.Application
 import android.content.Context

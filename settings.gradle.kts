@@ -26,6 +26,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Cyber Buzz"
+rootProject.name = "Crypto Buzz"
 include(":app")
 include(":base")

@@ -11,11 +11,11 @@ plugins {
 }
 
 android {
-    namespace = "uk.co.ht.cyberbuzz"
+    namespace = "uk.co.ht.cryptobuzz"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "uk.co.ht.cyberbuzz"
+        applicationId = "uk.co.ht.cryptobuzz"
         minSdk = 28
         targetSdk = 34
         versionCode = 1

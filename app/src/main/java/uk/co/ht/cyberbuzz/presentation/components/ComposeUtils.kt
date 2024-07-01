@@ -1,4 +1,4 @@
-package uk.co.ht.cyberbuzz.presentation.components
+package uk.co.ht.cryptobuzz.presentation.components
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -10,7 +10,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import uk.co.ht.base.domain.repository.CoinCapRepositoryResult
-import uk.co.ht.cyberbuzz.domain.models.CoinData
+import uk.co.ht.cryptobuzz.domain.models.CoinData
 
 
 @Composable

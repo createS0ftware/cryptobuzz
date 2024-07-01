@@ -14,12 +14,14 @@
  * limitations under the License.
  */
 
-package uk.co.ht.cyberbuzz.presentation.components
+package uk.co.ht.cryptobuzz.presentation.components
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
+import androidx.compose.material.LocalContentColor
+import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
@@ -32,8 +34,6 @@ import androidx.compose.ui.graphics.compositeOver
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
-import androidx.compose.material.LocalContentColor
-import uk.co.ht.cyberbuzz.presentation.theme.CyberBuzzTheme
 import kotlin.math.ln
 
 /**
@@ -44,8 +44,8 @@ import kotlin.math.ln
 fun CyberBuzzSurface(
     modifier: Modifier = Modifier,
     shape: Shape = RectangleShape,
-    color: Color = CyberBuzzTheme.colors.uiBackground,
-    contentColor: Color = CyberBuzzTheme.colors.textSecondary,
+    color: Color = MaterialTheme.colors.background,
+    contentColor: Color = MaterialTheme.colors.primary,
     border: BorderStroke? = null,
     elevation: Dp = 0.dp,
     content: @Composable () -> Unit
@@ -68,8 +68,8 @@ fun CyberBuzzSurface(
 @Composable
 private fun getBackgroundColorForElevation(color: Color, elevation: Dp): Color {
     return if (elevation > 0.dp // && https://issuetracker.google.com/issues/161429530
-    // CyberBuzzTheme.colors.isDark //&&
-    // color == CyberBuzzTheme.colors.uiBackground
+    // MaterialTheme.colors.isDark //&&
+    // color == MaterialTheme.colors.uiBackground
     ) {
         color.withElevation(elevation)
     } else {

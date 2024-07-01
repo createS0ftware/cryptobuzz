@@ -1,12 +1,12 @@
-package uk.co.ht.cyberbuzz.presentation.dashboard
+package uk.co.ht.cryptobuzz.presentation.dashboard
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import dagger.hilt.android.AndroidEntryPoint
-import uk.co.ht.cyberbuzz.presentation.components.CyberBuzzTable
-import uk.co.ht.cyberbuzz.presentation.theme.CyberBuzzTheme
+import uk.co.ht.cryptobuzz.presentation.components.CryptoBuzzTable
+import uk.co.ht.cryptobuzz.presentation.theme.MaterialTheme
 
 @AndroidEntryPoint
 class DashboardActivity : ComponentActivity() {
@@ -18,12 +18,12 @@ class DashboardActivity : ComponentActivity() {
 
         dashboardViewModel.exchangeDataSelected.observe(this) {
             setContent {
-                CyberBuzzTable(data = it)
+                CryptoBuzzTable(data = it)
             }
         }
 
         setContent {
-            CyberBuzzTheme {
+            MaterialTheme {
                 DashboardScreen()
             }
         }

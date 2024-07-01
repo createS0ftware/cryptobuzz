@@ -1,7 +1,7 @@
-package uk.co.ht.cyberbuzz.common
+package uk.co.ht.cryptobuzz.common
 
 import uk.co.ht.base.common.BuildVariableProvider
-import uk.co.ht.cyberbuzz.BuildConfig
+//import uk.co.ht.cryptobuzz.BuildConfig
 
 class BuildVariableProviderImpl: BuildVariableProvider {
     override fun getAPIBaseUrl(): String {
@@ -10,11 +10,11 @@ class BuildVariableProviderImpl: BuildVariableProvider {
     }
 
     override fun isDebug(): Boolean {
-        return BuildConfig.DEBUG;
+        return true//BuildConfig.DEBUG;
     }
 
     override fun isRelease(): Boolean {
-        return !BuildConfig.DEBUG;
+        return false//!BuildConfig.DEBUG;
     }
 
 }

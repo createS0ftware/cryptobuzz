@@ -1,4 +1,4 @@
-package uk.co.ht.cyberbuzz.domain.usecases
+package uk.co.ht.cryptobuzz.domain.usecases
 
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow

@@ -1,4 +1,4 @@
-package uk.co.ht.cyberbuzz.presentation
+package uk.co.ht.cryptobuzz.presentation
 
 enum class UIState {
     Loading,
