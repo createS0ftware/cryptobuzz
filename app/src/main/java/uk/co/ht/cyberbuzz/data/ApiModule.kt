@@ -1,8 +1,8 @@
-package uk.co.ht.base.common.di
+package uk.co.ht.cyberbuzz.data
 
+import ResultCallAdapterFactory
 import dagger.Module
 import dagger.Provides
-import dagger.Reusable
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
@@ -20,14 +20,13 @@ import java.util.concurrent.TimeUnit
 class ApiModule {
 
     @Provides
-    @Reusable
     fun getApiService(buildVariableProvider: BuildVariableProvider): APIService {
         val interceptor = HttpLoggingInterceptor()
 
         val builder = Retrofit.Builder()
             .baseUrl(buildVariableProvider.getAPIBaseUrl())
             .addConverterFactory(GsonConverterFactory.create())
-            .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
+            .addCallAdapterFactory(ResultCallAdapterFactory())
 
         if (buildVariableProvider.isDebug()) {
             interceptor.level = HttpLoggingInterceptor.Level.BODY
@@ -44,4 +43,5 @@ class ApiModule {
 
         return retrofit.create(APIService::class.java)
     }
+
 }

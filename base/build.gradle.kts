@@ -1,8 +1,12 @@
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsKotlinAndroid)
-    alias(libs.plugins.daggerHilt) apply false
+
+    //alias(libs.plugins.daggerHilt) apply false
     alias(libs.plugins.compose.compiler)
+
+    id("com.google.dagger.hilt.android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -18,7 +22,7 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -36,16 +40,21 @@ android {
 
 dependencies {
 
+    kapt(libs.hilt.compiler)
+
+    implementation(libs.material)
+
     implementation (libs.kotlinx.coroutines.android)
     implementation(libs.kotlinx.coroutines.core)
 
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
-    implementation(libs.material)
-    implementation(libs.androidx.material3)
     implementation(libs.androidx.activity.compose)
-    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.hilt.navigation.compose)
+    implementation(libs.androidx.compose.material)
+    implementation(libs.androidx.compose.material.iconsExtended)
+
+    implementation(libs.accompanist.systemuicontroller)
 
     api(libs.retrofit)
     api(libs.converter.gson)
@@ -54,6 +63,8 @@ dependencies {
 
     implementation(libs.kotlin.stdlib)
     implementation(libs.hilt.android)
+
+    implementation(platform(libs.androidx.compose.bom))
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
