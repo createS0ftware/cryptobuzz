@@ -1,12 +1,10 @@
 package uk.co.ht.base.data.network
 
-import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.onStart
-import okhttp3.internal.connection.Exchange
-import uk.co.ht.base.data.dto.AssetsResponse
 import uk.co.ht.base.data.dto.CoinAsset
+import uk.co.ht.base.data.dto.ExchangeObject
 import uk.co.ht.base.domain.repository.CoinCapRepository
 import uk.co.ht.base.domain.repository.CoinCapRepositoryResult
 import javax.inject.Inject
@@ -17,7 +15,7 @@ class CoinCapRepositoryImpl @Inject constructor(private val apiService: APIServi
 
     private val TOP_N = 10;
 
-    override suspend fun getTopTenExchanges(): Flow<CoinCapRepositoryResult<List<Exchange>>> =
+    override suspend fun getTopTenExchanges(): Flow<CoinCapRepositoryResult<List<ExchangeObject>>> =
         flow {
             apiService.getExchanges()
                 .onSuccess {

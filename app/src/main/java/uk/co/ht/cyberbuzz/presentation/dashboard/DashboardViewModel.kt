@@ -1,7 +1,6 @@
 package uk.co.ht.cyberbuzz.presentation.dashboard
 
-import android.content.Context
-import androidx.core.content.ContextCompat
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -9,11 +8,11 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import uk.co.ht.base.data.dto.CoinAsset
 import uk.co.ht.base.domain.repository.CoinCapRepositoryResult
 import uk.co.ht.base.domain.repository.CoinCapRepositoryResult.*
 import uk.co.ht.cyberbuzz.R
 import uk.co.ht.cyberbuzz.domain.models.CoinData
+import uk.co.ht.cyberbuzz.domain.models.ExchangeData
 import uk.co.ht.cyberbuzz.domain.usecases.CoinUseCase
 import uk.co.ht.cyberbuzz.domain.usecases.ExchangeUseCase
 import java.text.DecimalFormat
@@ -37,6 +36,7 @@ class DashboardViewModel @Inject constructor(
     val secondaryAssetStateFlow: StateFlow<CoinCapRepositoryResult<CoinData>> =
         _secondaryAssetStateFlow.asStateFlow()
 
+    val exchangeDataSelected = MutableLiveData<List<ExchangeData>>()
 
     fun getTopCoinAsset() {
         viewModelScope.launch {
@@ -58,6 +58,20 @@ class DashboardViewModel @Inject constructor(
         }
     }
 
+    private fun getTopTenExchanges() {
+        viewModelScope.launch {
+            exchangeUseCase.getTopTenExchanges().collect { result ->
+                when (result) {
+                    is Error -> {}
+                    is Loading -> {}
+                    is Success -> {
+                        exchangeDataSelected.value = result.dataObject
+                    }
+                }
+            }
+        }
+    }
+
     private fun getImageResource(name: String): Int {
         return R.drawable.placeholder;
     }
@@ -69,4 +83,9 @@ class DashboardViewModel @Inject constructor(
         val sign = if (isNegative) { "-" } else { "+" }
         return "$sign${decimalFormat.format(changeValue)} %"
     }
+
+    fun clickedExchange() {
+            getTopTenExchanges()
+    }
+
 }

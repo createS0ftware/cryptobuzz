@@ -154,8 +154,6 @@ fun DashboardGrid(
                 ) {
                     Column(
                         modifier = Modifier
-                            .clickable(onClick = { //onSnackClick(CoinData.coinDataId)
-                            })
                             .fillMaxSize()
                     ) {
                         Box(
@@ -349,6 +347,7 @@ fun DashboardGrid(
 
                     }
                 }
+                Spacer(modifier = Modifier.width(8.dp))
                 DataUICard(
                     modifier = Modifier
                         .size(
@@ -359,7 +358,8 @@ fun DashboardGrid(
                 ) {
                     Column(
                         modifier = Modifier
-                            .clickable(onClick = { //onSnackClick(CoinData.coinDataId)
+                            .clickable(onClick = {
+                                dashboardViewModel?.clickedExchange()
                             })
                             .fillMaxSize()
                     ) {
@@ -421,12 +421,10 @@ fun DashboardGrid(
 
 @Composable
 private fun HighlightedCoinDataVIew(
-    hasAssistants: Boolean,
     index: Int,
     coinDataModelItems: List<CoinData>,
     onSnackClick: (String) -> Unit,
     modifier: Modifier = Modifier,
-    //coinDataList: AssistantList? = null
 ) {
     val scroll = rememberScrollState(0)
     val gradient = when ((index / 2) % 2) {
@@ -443,7 +441,7 @@ private fun HighlightedCoinDataVIew(
         contentPadding = PaddingValues(start = 24.dp, end = 24.dp)
     ) {
         itemsIndexed(coinDataModelItems) { index, coinData ->
-            if (hasAssistants && index < coinDataModelItems.count()) {
+            if (index < coinDataModelItems.count()) {
                 HighlightedCoinDataUIItem(
                     coinData,
                     onSnackClick,
@@ -541,7 +539,26 @@ private fun HighlightedCoinDataUIItem(
 fun HighlightedCoinDataUIItemPreview() {
 
     CyberBuzzTheme {
-        HighlightedCoinDataUIItem(CoinData("Coin One", "+10%", R.drawable.placeholder),
-            onSnackClick = {},0)
+        Row(
+            horizontalArrangement = Arrangement.Center,
+            modifier = Modifier
+                .border(width = 1.0.dp, color = Color.Yellow)
+                .fillMaxWidth()
+                .padding(vertical = 8.dp)
+
+        ) {
+            HighlightedCoinDataUIItem(CoinData("Coin One", "+10%", R.drawable.placeholder),
+                onSnackClick = {},
+                index = 0,
+                modifier = Modifier
+                .padding(top = 8.dp)
+            )
+            Spacer(modifier = Modifier.width(8.dp))
+            HighlightedCoinDataUIItem(CoinData("Coin One", "+10%", R.drawable.placeholder),
+                onSnackClick = {}, 0,
+                modifier = Modifier
+                    .padding(top = 8.dp)
+            )
+        }
     }
 }
