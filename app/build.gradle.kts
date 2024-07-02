@@ -1,3 +1,5 @@
+import org.gradle.kotlin.dsl.provider.inClassPathMode
+
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
@@ -64,6 +66,7 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+
 }
 
 dependencies {
@@ -103,6 +106,22 @@ dependencies {
     implementation(project(":base"))
 
     testImplementation(libs.junit)
+    testImplementation(libs.mockito.core)
+    testImplementation(libs.mockito.kotlin)
+    testImplementation(libs.kotlin.test.junit)
+    testImplementation(libs.jetbrains.kotlinx.coroutines.test)
+
+    testImplementation(libs.junit.jupiter.api)
+    testRuntimeOnly(libs.junit.jupiter.engine)
+    testImplementation(libs.mockito.junit.jupiter)
+    testImplementation(libs.junit.jupiter)
+    testImplementation(libs.junit.jupiter.params)
+
+    testImplementation(libs.jetbrains.kotlinx.coroutines.test)
+
+    testRuntimeOnly(libs.junit.platform.launcher)
+    testImplementation(kotlin("test"))
+
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))

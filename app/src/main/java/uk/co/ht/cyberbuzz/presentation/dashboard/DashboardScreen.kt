@@ -331,20 +331,19 @@ fun DashboardGrid(
                         Box(
                             contentAlignment = Alignment.Center,
                             modifier = Modifier
-                                .height(120.dp)
-                                .fillMaxWidth()
+                                .background(CryptoBuzzTheme.colours.goldHue)
+                                .padding(4.0.dp)
                         ) {
                             Box(
                                 modifier = Modifier
-                                    .height(120.dp)
                                     .fillMaxWidth()
                                     .align(Alignment.Center)
                             )
                             CoinDataImage(
-                                drawableId = R.drawable.exchangeten, //assetInfoData.imageResource,
+                                drawableId = R.drawable.exchangeten,
                                 contentDescription = null,
                                 modifier = Modifier
-                                    .size(120.dp)
+                                    .size(140.dp)
                                     .align(Alignment.Center)
                             )
                         }
@@ -370,13 +369,12 @@ fun DashboardGrid(
                         Box(
                             contentAlignment = Alignment.Center,
                             modifier = Modifier
-                                .height(120.dp)
-                                .fillMaxWidth()
-
+                                .background(CryptoBuzzTheme.colours.goldHue)
+                                .padding(4.0.dp)
                         ) {
                             Box(
                                 modifier = Modifier
-                                    .height(120.dp)
+
                                     .fillMaxWidth()
                                     .align(Alignment.Center)
                             )
@@ -384,12 +382,10 @@ fun DashboardGrid(
                                 drawableId = R.drawable.coinsten,
                                 contentDescription = null,
                                 modifier = Modifier
-                                    .size(120.dp)
+                                    .size(140.dp)
                                     .align(Alignment.Center)
                             )
                         }
-
-
                     }
                 }
             }

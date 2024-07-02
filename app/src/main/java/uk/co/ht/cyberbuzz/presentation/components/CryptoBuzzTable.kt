@@ -66,7 +66,7 @@ fun TableRow(rowData: AssetInfoData, backgroundColour: Color) {
 
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
-fun CryptoBuzzTable(data: List<AssetInfoData>) {
+fun CryptoBuzzTable(data: List<AssetInfoData>, showsCoins: Boolean = true) {
     var currentRowIndex by remember { mutableIntStateOf(0) }
 
     LaunchedEffect(data) {
@@ -120,7 +120,11 @@ fun CryptoBuzzTable(data: List<AssetInfoData>) {
                         modifier = Modifier.weight(1f)
                     )
                     Text(
-                        text = "Volume (USD)",
+                        text = if (showsCoins) {
+                            "24Hr Change (%)"
+                        } else {
+                            "24Hr Volume (USD)"
+                        },
                         style = MaterialTheme.typography.subtitle1,
                         modifier = Modifier.weight(1.5f)
                     )

@@ -12,14 +12,14 @@ import uk.co.ht.cryptobuzz.presentation.components.CryptoBuzzTable
 class DashboardActivity : ComponentActivity() {
 
     private val dashboardViewModel: DashboardViewModel by viewModels()
-    
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         dashboardViewModel.exchangeDataSelected.observe(this) {
             setContent {
                 CryptoBuzzTheme {
-                    CryptoBuzzTable(data = it)
+                    CryptoBuzzTable(data = it, showsCoins = false)
                 }
             }
         }
