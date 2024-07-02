@@ -1,12 +1,12 @@
 package uk.co.ht.cryptobuzz.presentation.dashboard
 
+import CryptoBuzzTheme
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import uk.co.ht.cryptobuzz.presentation.components.CryptoBuzzTable
-import uk.co.ht.cryptobuzz.presentation.theme.MaterialTheme
 
 @AndroidEntryPoint
 class DashboardActivity : ComponentActivity() {
@@ -18,12 +18,22 @@ class DashboardActivity : ComponentActivity() {
 
         dashboardViewModel.exchangeDataSelected.observe(this) {
             setContent {
-                CryptoBuzzTable(data = it)
+                CryptoBuzzTheme {
+                    CryptoBuzzTable(data = it)
+                }
+            }
+        }
+
+        dashboardViewModel.coinDataSelected.observe(this) {
+            setContent {
+                CryptoBuzzTheme {
+                    CryptoBuzzTable(data = it)
+                }
             }
         }
 
         setContent {
-            MaterialTheme {
+            CryptoBuzzTheme {
                 DashboardScreen()
             }
         }

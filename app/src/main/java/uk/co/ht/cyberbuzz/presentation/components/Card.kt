@@ -3,10 +3,9 @@ package uk.co.ht.cryptobuzz.presentation.components
 import android.content.res.Configuration
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -20,7 +19,6 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import uk.co.ht.cryptobuzz.R
-import uk.co.ht.cryptobuzz.presentation.theme.MaterialTheme
 
 @Composable
 fun DataUICard(
@@ -45,7 +43,7 @@ fun DataUICard(
 
 @Composable
 fun CoinDataImage(
-    imageResource: Int,
+    drawableId: Int,
     contentDescription: String?,
     modifier: Modifier = Modifier,
     elevation: Dp = 0.dp
@@ -58,13 +56,14 @@ fun CoinDataImage(
     ) {
         AsyncImage(
             model = ImageRequest.Builder(LocalContext.current)
-                .data(imageResource)
+                .data(drawableId)
                 .crossfade(true)
                 .build(),
             contentDescription = contentDescription,
             placeholder = painterResource(R.drawable.placeholder),
-            modifier = Modifier.fillMaxSize(),
-            contentScale = ContentScale.Crop,
+            modifier = Modifier
+                .fillMaxSize(),
+            contentScale = ContentScale.FillBounds
         )
     }
 }
@@ -75,8 +74,10 @@ fun CoinDataImage(
 @Composable
 private fun CardPreview() {
     MaterialTheme {
-        DataUICard {
-            Text(text = "Demo", modifier = Modifier.padding(16.dp))
-        }
+        CoinDataImage(R.drawable.coinsten,
+            contentDescription = null,
+            modifier = Modifier
+                .size(100.dp)
+        )
     }
 }

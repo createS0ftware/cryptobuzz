@@ -1,20 +1,20 @@
 package uk.co.ht.cryptobuzz.common
 
 import uk.co.ht.base.common.BuildVariableProvider
-//import uk.co.ht.cryptobuzz.BuildConfig
+import uk.co.ht.cryptobuzz.BuildConfig
 
 class BuildVariableProviderImpl: BuildVariableProvider {
     override fun getAPIBaseUrl(): String {
-        //return BuildConfig.BASE_URL;
-        return "https://api.coincap.io/v2/";
+        return BuildConfig.BASE_URL;
+        //return "https://api.coincap.io/v2/";
     }
 
     override fun isDebug(): Boolean {
-        return true//BuildConfig.DEBUG;
+        return BuildConfig.DEBUG;
     }
 
     override fun isRelease(): Boolean {
-        return false//!BuildConfig.DEBUG;
+        return !BuildConfig.DEBUG;
     }
 
 }

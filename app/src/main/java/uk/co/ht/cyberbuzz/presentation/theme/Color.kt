@@ -86,4 +86,6 @@ val FunctionalGreen = Color(0xff52c41a)
 val FunctionalGrey = Color(0xfff6f6f6)
 val FunctionalDarkGrey = Color(0xff2e2e2e)
 
+val GoldenHue = Color(0xffcfa95b)
+
 const val AlphaNearOpaque = 0.95f

@@ -1,128 +1,36 @@
-package uk.co.ht.cryptobuzz.presentation.theme
-
-import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material.Colors
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
-import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import uk.co.ht.cryptobuzz.presentation.theme.FunctionalRed
+import uk.co.ht.cryptobuzz.presentation.theme.FunctionalRedDark
+import uk.co.ht.cryptobuzz.presentation.theme.GoldenHue
+import uk.co.ht.cryptobuzz.presentation.theme.Neutral0
+import uk.co.ht.cryptobuzz.presentation.theme.Neutral1
+import uk.co.ht.cryptobuzz.presentation.theme.Neutral4
+import uk.co.ht.cryptobuzz.presentation.theme.Neutral5
+import uk.co.ht.cryptobuzz.presentation.theme.Neutral7
+import uk.co.ht.cryptobuzz.presentation.theme.Neutral8
+import uk.co.ht.cryptobuzz.presentation.theme.Ocean0
+import uk.co.ht.cryptobuzz.presentation.theme.Ocean1
+import uk.co.ht.cryptobuzz.presentation.theme.Ocean10
+import uk.co.ht.cryptobuzz.presentation.theme.Ocean11
+import uk.co.ht.cryptobuzz.presentation.theme.Ocean2
+import uk.co.ht.cryptobuzz.presentation.theme.Ocean3
+import uk.co.ht.cryptobuzz.presentation.theme.Ocean4
+import uk.co.ht.cryptobuzz.presentation.theme.Ocean5
+import uk.co.ht.cryptobuzz.presentation.theme.Ocean6
+import uk.co.ht.cryptobuzz.presentation.theme.Ocean7
+import uk.co.ht.cryptobuzz.presentation.theme.Ocean8
+import uk.co.ht.cryptobuzz.presentation.theme.Ocean9
 
-
-private val LightColorPalette = CryptoBuzzColours(
-    brand = Shadow5,
-    brandSecondary = Ocean3,
-    uiBackground = Neutral0,
-    uiBorder = Neutral4,
-    uiFloated = FunctionalGrey,
-    textSecondary = Neutral7,
-    textHelp = Neutral6,
-    textInteractive = Neutral0,
-    textLink = Ocean11,
-    iconSecondary = Neutral7,
-    iconInteractive = Neutral0,
-    iconInteractiveInactive = Neutral1,
-    error = FunctionalRed,
-    gradient6_1 = listOf(Shadow4, Ocean3, Shadow2, Ocean3, Shadow4),
-    gradient6_2 = listOf(Rose4, Lavender3, Rose2, Lavender3, Rose4),
-    gradient3_1 = listOf(Shadow2, Ocean3, Shadow4),
-    gradient3_2 = listOf(Rose2, Lavender3, Rose4),
-    gradient2_1 = listOf(Shadow4, Shadow11),
-    gradient2_2 = listOf(Ocean3, Shadow3),
-    gradient2_3 = listOf(Lavender3, Rose2),
-    tornado1 = listOf(Shadow4, Ocean3),
-    isDark = false
-)
-
-private val DarkColorPalette = CryptoBuzzColours(
-    brand = Shadow1,
-    brandSecondary = Ocean2,
-    uiBackground = Neutral8,
-    uiBorder = Neutral3,
-    uiFloated = FunctionalDarkGrey,
-    textPrimary = Shadow1,
-    textSecondary = Neutral0,
-    textHelp = Neutral1,
-    textInteractive = Neutral7,
-    textLink = Ocean2,
-    iconPrimary = Shadow1,
-    iconSecondary = Neutral0,
-    iconInteractive = Neutral7,
-    iconInteractiveInactive = Neutral6,
-    error = FunctionalRedDark,
-    gradient6_1 = listOf(Shadow5, Ocean7, Shadow9, Ocean7, Shadow5),
-    gradient6_2 = listOf(Rose11, Lavender7, Rose8, Lavender7, Rose11),
-    gradient3_1 = listOf(Shadow9, Ocean7, Shadow5),
-    gradient3_2 = listOf(Rose8, Lavender7, Rose11),
-    gradient2_1 = listOf(Ocean3, Shadow3),
-    gradient2_2 = listOf(Ocean4, Shadow2),
-    gradient2_3 = listOf(Lavender3, Rose3),
-    tornado1 = listOf(Shadow4, Ocean3),
-    isDark = true
-)
-
-private val LightColors = lightColors(
-    primary = Ocean7,
-    primaryVariant = Ocean5,
-    secondary = Lavender7,
-    secondaryVariant = Lavender5,
-    background = Neutral0,
-    surface = Neutral0,
-    onPrimary = Neutral0,
-    onSecondary = Neutral0,
-    onBackground = Neutral7,
-    onSurface = Neutral7
-)
-
-private val DarkColors = darkColors(
-    primary = Ocean7,
-    primaryVariant = Ocean5,
-    secondary = Lavender7,
-    secondaryVariant = Lavender5,
-    background = Neutral8,
-    surface = Neutral8,
-    onPrimary = Neutral0,
-    onSecondary = Neutral0,
-    onBackground = Neutral0,
-    onSurface = Neutral0
-)
-
-@Composable
-fun MaterialTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
-    content: @Composable () -> Unit
-) {
-    val colors = if (darkTheme) DarkColors else LightColors
-
-    val sysUiController = rememberSystemUiController()
-    SideEffect {
-        sysUiController.setSystemBarsColor(
-            color = colors.background.copy(alpha = AlphaNearOpaque)
-        )
-    }
-
-        MaterialTheme(
-            colors = colors,
-            typography = Typography,
-            shapes = Shapes,
-            content = content
-        )
-    }
-
-
-
-/**
- * Jetsnack custom Color Palette
- */
 @Stable
 class CryptoBuzzColours(
     gradient6_1: List<Color>,
@@ -152,7 +60,8 @@ class CryptoBuzzColours(
     iconInteractiveInactive: Color,
     error: Color,
     notificationBadge: Color = error,
-    isDark: Boolean
+    isDark: Boolean,
+    goldHue: Color
 ) {
     var gradient6_1 by mutableStateOf(gradient6_1)
         private set
@@ -210,6 +119,8 @@ class CryptoBuzzColours(
         private set
     var isDark by mutableStateOf(isDark)
         private set
+    var goldHue by mutableStateOf(goldHue)
+        private set
 
     fun update(other: CryptoBuzzColours) {
         gradient6_1 = other.gradient6_1
@@ -240,6 +151,7 @@ class CryptoBuzzColours(
         error = other.error
         notificationBadge = other.notificationBadge
         isDark = other.isDark
+        goldHue = other.goldHue
     }
 
     fun copy(): CryptoBuzzColours = CryptoBuzzColours(
@@ -271,5 +183,120 @@ class CryptoBuzzColours(
         error = error,
         notificationBadge = notificationBadge,
         isDark = isDark,
+        goldHue = GoldenHue,
     )
+}
+
+
+val LightCryptoBuzzColours = CryptoBuzzColours(
+    gradient6_1 = listOf(Ocean11, Ocean10, Ocean9, Ocean8, Ocean7, Ocean6),
+    gradient6_2 = listOf(Ocean5, Ocean4, Ocean3, Ocean2, Ocean1, Ocean0),
+    gradient3_1 = listOf(Ocean11, Ocean10, Ocean9),
+    gradient3_2 = listOf(Ocean8, Ocean7, Ocean6),
+    gradient2_1 = listOf(Ocean5, Ocean4),
+    gradient2_2 = listOf(Ocean3, Ocean2),
+    gradient2_3 = listOf(Ocean1, Ocean0),
+    brand = Ocean7,
+    brandSecondary = Ocean5,
+    uiBackground = Neutral0,
+    uiBorder = Neutral4,
+    uiFloated = Neutral1,
+    textPrimary = Ocean11,
+    textSecondary = Ocean10,
+    textHelp = Ocean9,
+    textInteractive = Ocean8,
+    textLink = Ocean7,
+    tornado1 = listOf(Ocean6),
+    iconPrimary = Ocean7,
+    iconSecondary = Ocean5,
+    iconInteractive = Ocean4,
+    iconInteractiveInactive = Ocean3,
+    error = FunctionalRed,
+    notificationBadge = FunctionalRed,
+    interactivePrimary = listOf(Ocean5, Ocean4),
+    interactiveSecondary = listOf(Ocean3, Ocean2),
+    interactiveMask = listOf(Ocean11, Ocean10),
+    isDark = false,
+    goldHue = GoldenHue
+)
+
+val DarkCryptoBuzzColours = CryptoBuzzColours(
+    gradient6_1 = listOf(Ocean11, Ocean10, Ocean9, Ocean8, Ocean7, Ocean6),
+    gradient6_2 = listOf(Ocean5, Ocean4, Ocean3, Ocean2, Ocean1, Ocean0),
+    gradient3_1 = listOf(Ocean11, Ocean10, Ocean9),
+    gradient3_2 = listOf(Ocean8, Ocean7, Ocean6),
+    gradient2_1 = listOf(Ocean5, Ocean4),
+    gradient2_2 = listOf(Ocean3, Ocean2),
+    gradient2_3 = listOf(Ocean1, Ocean0),
+    brand = Ocean7,
+    brandSecondary = Ocean5,
+    uiBackground = Neutral8,
+    uiBorder = Neutral5,
+    uiFloated = Neutral7,
+    interactivePrimary = listOf(Ocean5, Ocean4),
+    interactiveSecondary = listOf(Ocean3, Ocean2),
+    interactiveMask = listOf(Ocean11, Ocean10),
+    textPrimary = Neutral0,
+    textSecondary = Ocean1,
+    textHelp = Ocean2,
+    textInteractive = Ocean3,
+    textLink = Ocean4,
+    tornado1 = listOf(Ocean5),
+    iconPrimary = Ocean7,
+    iconSecondary = Ocean5,
+    iconInteractive = Ocean4,
+    iconInteractiveInactive = Ocean3,
+    error = FunctionalRedDark,
+    notificationBadge = FunctionalRedDark,
+    isDark = true,
+    goldHue = GoldenHue
+)
+
+val LocalCryptoBuzzColours = staticCompositionLocalOf {
+    LightCryptoBuzzColours
+}
+
+@Composable
+fun CryptoBuzzTheme(
+    colours: CryptoBuzzColours = LightCryptoBuzzColours,
+    content: @Composable () -> Unit
+) {
+    val colors = if (colours.isDark) {
+        darkColors(
+            primary = colours.brand,
+            primaryVariant = colours.brandSecondary,
+            secondary = colours.textPrimary,
+            background = colours.uiBackground,
+            surface = colours.uiFloated,
+            onPrimary = colours.uiBackground,
+            onSecondary = colours.uiBackground,
+            onBackground = colours.textPrimary,
+            onSurface = colours.textPrimary
+        )
+    } else {
+        lightColors(
+            primary = colours.brand,
+            primaryVariant = colours.brandSecondary,
+            secondary = colours.textPrimary,
+            background = colours.uiBackground,
+            surface = colours.uiFloated,
+            onPrimary = colours.uiBackground,
+            onSecondary = colours.uiBackground,
+            onBackground = colours.textPrimary,
+            onSurface = colours.textPrimary
+        )
+    }
+
+    CompositionLocalProvider(LocalCryptoBuzzColours provides colours) {
+        MaterialTheme(
+            colors = colors,
+            content = content
+        )
+    }
+}
+
+object CryptoBuzzTheme {
+    val colours: CryptoBuzzColours
+        @Composable
+        get() = LocalCryptoBuzzColours.current
 }

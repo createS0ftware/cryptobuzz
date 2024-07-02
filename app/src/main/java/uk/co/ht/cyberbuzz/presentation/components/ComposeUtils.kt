@@ -10,12 +10,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import uk.co.ht.base.domain.repository.CoinCapRepositoryResult
-import uk.co.ht.cryptobuzz.domain.models.CoinData
+import uk.co.ht.cryptobuzz.domain.models.AssetInfoData
 
 
 @Composable
-fun CoinCapRepositoryResult<CoinData>.UpdateTextDisplay(
-    successContent: @Composable (CoinData) -> Unit,
+fun CoinCapRepositoryResult<AssetInfoData>.UpdateTextDisplay(
+    successContent: @Composable (AssetInfoData) -> Unit,
     modifier: Modifier = Modifier,
     loadingText: String = "Updating...",
     textStyle: TextStyle = MaterialTheme.typography.caption
@@ -44,6 +44,26 @@ fun CoinCapRepositoryResult<CoinData>.UpdateTextDisplay(
                     .fillMaxWidth()
                     .padding(horizontal = 16.dp)
             )
+        }
+    }
+}
+
+
+
+@Composable
+fun CoinCapRepositoryResult<AssetInfoData>.UpdateImageDisplay(
+    successContent: @Composable (AssetInfoData) -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    when (this) {
+        is CoinCapRepositoryResult.Loading -> {
+        }
+
+        is CoinCapRepositoryResult.Success -> {
+            successContent(this.dataObject)
+        }
+
+        is CoinCapRepositoryResult.Error -> {
         }
     }
 }
