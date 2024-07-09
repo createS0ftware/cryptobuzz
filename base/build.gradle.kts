@@ -1,8 +1,6 @@
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsKotlinAndroid)
-
-    //alias(libs.plugins.daggerHilt) apply false
     alias(libs.plugins.compose.compiler)
 
     id("com.google.dagger.hilt.android")
@@ -36,6 +34,12 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    packaging {
+        resources.excludes += "META-INF/LICENSE*"
+        resources.excludes += "META-INF/NOTICE"
+        resources.excludes += "META-INF/NOTICE.txt"
+    }
 }
 
 dependencies {
@@ -66,7 +70,14 @@ dependencies {
 
     implementation(platform(libs.androidx.compose.bom))
 
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+    testImplementation(libs.mockk.android)
+    testImplementation(libs.mockk.agent)
+
+    androidTestImplementation(libs.mockk.mockk.android)
+    androidTestImplementation(libs.mockk.agent)
+    
+}
+
+tasks.withType<Test> {
+    useJUnitPlatform()
 }

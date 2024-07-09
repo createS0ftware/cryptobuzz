@@ -1,0 +1,134 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > CoinObject</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">uk.co.ht.base.data.dto</a>
+</div>
+
+<h1>Coverage Summary for Class: CoinObject (uk.co.ht.base.data.dto)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">CoinObject</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (13/13)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package uk.co.ht.base.data.dto
+&nbsp;
+&nbsp;import com.google.gson.annotations.SerializedName
+&nbsp;
+<b class="fc">&nbsp;data class CoinObject(</b>
+<b class="fc">&nbsp;    @SerializedName(&quot;id&quot;)</b>
+&nbsp;    val id: String,
+<b class="fc">&nbsp;    @SerializedName(&quot;rank&quot;)</b>
+&nbsp;    val rank: String,
+<b class="fc">&nbsp;    @SerializedName(&quot;symbol&quot;)</b>
+&nbsp;    val symbol: String,
+<b class="fc">&nbsp;    @SerializedName(&quot;name&quot;)</b>
+&nbsp;    val name: String,
+<b class="fc">&nbsp;    @SerializedName(&quot;supply&quot;)</b>
+&nbsp;    val supply: String,
+<b class="fc">&nbsp;    @SerializedName(&quot;maxSupply&quot;)</b>
+&nbsp;    val maxSupply: String?,
+<b class="fc">&nbsp;    @SerializedName(&quot;marketCapUsd&quot;)</b>
+&nbsp;    val marketCapUsd: String,
+<b class="fc">&nbsp;    @SerializedName(&quot;volumeUsd24Hr&quot;)</b>
+&nbsp;    val volumeUsd24Hr: String,
+<b class="fc">&nbsp;    @SerializedName(&quot;priceUsd&quot;)</b>
+&nbsp;    val priceUsd: String,
+<b class="fc">&nbsp;    @SerializedName(&quot;changePercent24Hr&quot;)</b>
+&nbsp;    val changePercent24Hr: String,
+<b class="fc">&nbsp;    @SerializedName(&quot;vwap24Hr&quot;)</b>
+&nbsp;    val vwap24Hr: String?,
+<b class="fc">&nbsp;    @SerializedName(&quot;explorer&quot;)</b>
+&nbsp;    val explorer: String?
+&nbsp;)
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-07-09 07:29</div>
+</div>
+</body>
+</html>

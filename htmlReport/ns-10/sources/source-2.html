@@ -1,0 +1,148 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > UtilsKt</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">uk.co.ht.cyberbuzz.common.utils</a>
+</div>
+
+<h1>Coverage Summary for Class: UtilsKt (uk.co.ht.cyberbuzz.common.utils)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">UtilsKt</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package uk.co.ht.cyberbuzz.common.utils
+&nbsp;
+&nbsp;import androidx.annotation.DrawableRes
+&nbsp;import uk.co.ht.cryptobuzz.R
+&nbsp;
+&nbsp;
+&nbsp;enum class CryptoDrawable(val drawableResId: Int) {
+&nbsp;    BITCOIN(R.drawable.bitcoin),
+&nbsp;    ETHEREUM(R.drawable.ethereum),
+&nbsp;    BINANCECOIN(R.drawable.binancecoin),
+&nbsp;    BINANCE(R.drawable.binance),
+&nbsp;    COINBASE(R.drawable.coinbasepro),
+&nbsp;    CRYPTO(R.drawable.crypto),
+&nbsp;    WHITEBIT(R.drawable.whitebit),
+&nbsp;    DIGIFINEX(R.drawable.digifinex),
+&nbsp;    KRAKEN(R.drawable.kraken),
+&nbsp;    GATE(R.drawable.gate),
+&nbsp;    BITMAX(R.drawable.bitmax),
+&nbsp;    PROBIT(R.drawable.probit),
+&nbsp;    BIBOX(R.drawable.bibox);
+&nbsp;
+&nbsp;    companion object {
+&nbsp;        fun fromString(name: String): CryptoDrawable? {
+&nbsp;            return entries.find { it.name.equals(name, ignoreCase = true) }
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+&nbsp;
+&nbsp;@DrawableRes
+&nbsp;fun getDrawableIdByName(name: String): Int {
+<b class="nc">&nbsp;    return CryptoDrawable.fromString(name)?.drawableResId ?: R.drawable.placeholder</b>
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-07-09 07:29</div>
+</div>
+</body>
+</html>

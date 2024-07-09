@@ -1,0 +1,214 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > SurfaceKt</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">uk.co.ht.cryptobuzz.presentation.components</a>
+</div>
+
+<h1>Coverage Summary for Class: SurfaceKt (uk.co.ht.cryptobuzz.presentation.components)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">SurfaceKt</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/80)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/61)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; * Copyright 2020 The Android Open Source Project
+&nbsp; *
+&nbsp; * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; * you may not use this file except in compliance with the License.
+&nbsp; * You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *     https://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing, software
+&nbsp; * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; * See the License for the specific language governing permissions and
+&nbsp; * limitations under the License.
+&nbsp; */
+&nbsp;
+&nbsp;package uk.co.ht.cryptobuzz.presentation.components
+&nbsp;
+&nbsp;import androidx.compose.foundation.BorderStroke
+&nbsp;import androidx.compose.foundation.background
+&nbsp;import androidx.compose.foundation.border
+&nbsp;import androidx.compose.foundation.layout.Box
+&nbsp;import androidx.compose.material.LocalContentColor
+&nbsp;import androidx.compose.material.MaterialTheme
+&nbsp;import androidx.compose.runtime.Composable
+&nbsp;import androidx.compose.runtime.CompositionLocalProvider
+&nbsp;import androidx.compose.ui.Modifier
+&nbsp;import androidx.compose.ui.draw.clip
+&nbsp;import androidx.compose.ui.draw.shadow
+&nbsp;import androidx.compose.ui.graphics.Color
+&nbsp;import androidx.compose.ui.graphics.RectangleShape
+&nbsp;import androidx.compose.ui.graphics.Shape
+&nbsp;import androidx.compose.ui.graphics.compositeOver
+&nbsp;import androidx.compose.ui.unit.Dp
+&nbsp;import androidx.compose.ui.unit.dp
+&nbsp;import androidx.compose.ui.zIndex
+&nbsp;import kotlin.math.ln
+&nbsp;
+&nbsp;/**
+&nbsp; * An alternative to [androidx.compose.material.Surface] utilizing
+&nbsp; * [CyberBuzzColors]
+&nbsp; */
+&nbsp;@Composable
+&nbsp;fun CyberBuzzSurface(
+<b class="nc">&nbsp;    modifier: Modifier = Modifier,</b>
+<b class="nc">&nbsp;    shape: Shape = RectangleShape,</b>
+<b class="nc">&nbsp;    color: Color = MaterialTheme.colors.background,</b>
+<b class="nc">&nbsp;    contentColor: Color = MaterialTheme.colors.primary,</b>
+<b class="nc">&nbsp;    border: BorderStroke? = null,</b>
+<b class="nc">&nbsp;    elevation: Dp = 0.dp,</b>
+&nbsp;    content: @Composable () -&gt; Unit
+<b class="nc">&nbsp;) {</b>
+<b class="nc">&nbsp;    Box(</b>
+<b class="nc">&nbsp;        modifier = modifier</b>
+<b class="nc">&nbsp;            .shadow(elevation = elevation, shape = shape, clip = false)</b>
+<b class="nc">&nbsp;            .zIndex(elevation.value)</b>
+<b class="nc">&nbsp;            .then(if (border != null) Modifier.border(border, shape) else Modifier)</b>
+<b class="nc">&nbsp;            .background(</b>
+<b class="nc">&nbsp;                color = getBackgroundColorForElevation(color, elevation),</b>
+<b class="nc">&nbsp;                shape = shape</b>
+&nbsp;            )
+<b class="nc">&nbsp;            .clip(shape)</b>
+&nbsp;    ) {
+<b class="nc">&nbsp;        CompositionLocalProvider(LocalContentColor provides contentColor, content = content)</b>
+<b class="nc">&nbsp;    }</b>
+<b class="nc">&nbsp;}</b>
+&nbsp;
+&nbsp;@Composable
+&nbsp;private fun getBackgroundColorForElevation(color: Color, elevation: Dp): Color {
+<b class="nc">&nbsp;    return if (elevation &gt; 0.dp // &amp;&amp; https://issuetracker.google.com/issues/161429530</b>
+&nbsp;    // MaterialTheme.colors.isDark //&amp;&amp;
+&nbsp;    // color == MaterialTheme.colors.uiBackground
+&nbsp;    ) {
+<b class="nc">&nbsp;        color.withElevation(elevation)</b>
+&nbsp;    } else {
+<b class="nc">&nbsp;        color</b>
+&nbsp;    }
+&nbsp;}
+&nbsp;
+&nbsp;/**
+&nbsp; * Applies a [Color.White] overlay to this color based on the [elevation]. This increases visibility
+&nbsp; * of elevation for surfaces in a dark theme.
+&nbsp; *
+&nbsp; * TODO: Remove when public https://issuetracker.google.com/155181601
+&nbsp; */
+&nbsp;private fun Color.withElevation(elevation: Dp): Color {
+<b class="nc">&nbsp;    val foreground = calculateForeground(elevation)</b>
+<b class="nc">&nbsp;    return foreground.compositeOver(this)</b>
+&nbsp;}
+&nbsp;
+&nbsp;/**
+&nbsp; * @return the alpha-modified [Color.White] to overlay on top of the surface color to produce
+&nbsp; * the resultant color.
+&nbsp; */
+&nbsp;private fun calculateForeground(elevation: Dp): Color {
+<b class="nc">&nbsp;    val alpha = ((4.5f * ln(elevation.value + 1)) + 2f) / 100f</b>
+<b class="nc">&nbsp;    return Color.White.copy(alpha = alpha)</b>
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-07-09 07:29</div>
+</div>
+</body>
+</html>

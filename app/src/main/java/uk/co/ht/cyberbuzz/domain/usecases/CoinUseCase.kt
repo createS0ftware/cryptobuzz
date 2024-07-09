@@ -50,7 +50,14 @@ class CoinUseCase @Inject constructor(private val repository: CoinCapRepository)
                         is CoinCapRepositoryResult.Error -> TODO()
                         is CoinCapRepositoryResult.Loading -> {}
                         is CoinCapRepositoryResult.Success -> {
-                            coinsResult.dataObject[SECONDARY_COIN_INDEX]
+                            if (coinsResult.dataObject.size > SECONDARY_COIN_INDEX) {
+                                coinsResult.dataObject[SECONDARY_COIN_INDEX]
+                            } else {
+                                emit(CoinCapRepositoryResult.Error(
+                                    Exception("Not enough data"),
+                                    "Not enough data"
+                                ))
+                            }
                         }
                     }
                 }

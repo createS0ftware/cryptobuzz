@@ -1,0 +1,261 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > CoinUseCase</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">uk.co.ht.cryptobuzz.domain.usecases</a>
+</div>
+
+<h1>Coverage Summary for Class: CoinUseCase (uk.co.ht.cryptobuzz.domain.usecases)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">CoinUseCase</td>
+<td class="coverageStat">
+  <span class="percent">
+    80%
+  </span>
+  <span class="absValue">
+    (4/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    60%
+  </span>
+  <span class="absValue">
+    (6/10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    86.2%
+  </span>
+  <span class="absValue">
+    (25/29)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">CoinUseCase$getSecondaryCoinAsset$2</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">CoinUseCase$getSecondaryCoinAsset$2$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    16.7%
+  </span>
+  <span class="absValue">
+    (1/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">CoinUseCase$getTopTenCoinAssets$$inlined$map$1</td>
+  </tr>
+  <tr>
+    <td class="name">CoinUseCase$getTopTenCoinAssets$$inlined$map$1$2</td>
+  </tr>
+  <tr>
+    <td class="name">CoinUseCase$getTopTenCoinAssets$$inlined$map$1$2$1</td>
+  </tr>
+  <tr>
+    <td class="name">CoinUseCase$getTopTenCoinAssets$1</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    57.1%
+  </span>
+  <span class="absValue">
+    (4/7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    43.8%
+  </span>
+  <span class="absValue">
+    (7/16)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    69.4%
+  </span>
+  <span class="absValue">
+    (25/36)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package uk.co.ht.cryptobuzz.domain.usecases
+&nbsp;
+&nbsp;import kotlinx.coroutines.ExperimentalCoroutinesApi
+&nbsp;import kotlinx.coroutines.flow.Flow
+&nbsp;import kotlinx.coroutines.flow.flow
+&nbsp;import kotlinx.coroutines.flow.map
+&nbsp;import uk.co.ht.base.domain.repository.CoinCapRepository
+&nbsp;import uk.co.ht.base.domain.repository.CoinCapRepositoryResult
+&nbsp;import uk.co.ht.cryptobuzz.domain.models.AssetInfoData
+&nbsp;import java.text.DecimalFormat
+&nbsp;import javax.inject.Inject
+&nbsp;
+&nbsp;@OptIn(ExperimentalCoroutinesApi::class)
+<b class="fc">&nbsp;class CoinUseCase @Inject constructor(private val repository: CoinCapRepository) {</b>
+&nbsp;
+<b class="fc">&nbsp;    private val SECONDARY_COIN_INDEX = 1;</b>
+&nbsp;
+&nbsp;    suspend fun getTopTenCoinAssets(): Flow&lt;CoinCapRepositoryResult&lt;List&lt;AssetInfoData&gt;&gt;&gt; =
+<b class="fc">&nbsp;        repository.getTopTenCoins()</b>
+<b class="fc">&nbsp;            .map { result -&gt;</b>
+<b class="fc">&nbsp;                when (result) {</b>
+<b class="pc">&nbsp;                    is CoinCapRepositoryResult.Error -&gt; CoinCapRepositoryResult.Error(</b>
+<b class="nc">&nbsp;                        result.error,</b>
+<b class="nc">&nbsp;                        result.message</b>
+&nbsp;                    )
+&nbsp;
+<b class="pc">&nbsp;                    is CoinCapRepositoryResult.Loading -&gt; CoinCapRepositoryResult.Loading</b>
+<b class="fc">&nbsp;                    is CoinCapRepositoryResult.Success -&gt; {</b>
+<b class="fc">&nbsp;                        val topTenCoins = result.dataObject</b>
+<b class="fc">&nbsp;                            .map { coin -&gt;</b>
+<b class="fc">&nbsp;                                val percentChange: String =</b>
+<b class="fc">&nbsp;                                    getPercentChange(coin.changePercent24Hr)</b>
+&nbsp;
+<b class="fc">&nbsp;                                AssetInfoData(</b>
+<b class="fc">&nbsp;                                    coin.name,</b>
+<b class="fc">&nbsp;                                    coin.rank.toInt(),</b>
+<b class="fc">&nbsp;                                    percentChange,</b>
+<b class="fc">&nbsp;                                )</b>
+&nbsp;                            }
+<b class="fc">&nbsp;                        CoinCapRepositoryResult.Success(topTenCoins)</b>
+&nbsp;                    }
+<b class="fc">&nbsp;                }</b>
+&nbsp;            }
+&nbsp;
+&nbsp;    suspend fun getSecondaryCoinAsset(): Flow&lt;CoinCapRepositoryResult&lt;AssetInfoData&gt;&gt; =
+<b class="nc">&nbsp;        flow {</b>
+<b class="nc">&nbsp;            repository.getTopTenCoins()</b>
+<b class="nc">&nbsp;                .collect { coinsResult -&gt;</b>
+<b class="nc">&nbsp;                    when (coinsResult) {</b>
+<b class="nc">&nbsp;                        is CoinCapRepositoryResult.Error -&gt; TODO()</b>
+<b class="nc">&nbsp;                        is CoinCapRepositoryResult.Loading -&gt; {}</b>
+<b class="nc">&nbsp;                        is CoinCapRepositoryResult.Success -&gt; {</b>
+<b class="nc">&nbsp;                            coinsResult.dataObject[SECONDARY_COIN_INDEX]</b>
+&nbsp;                        }
+&nbsp;                    }
+&nbsp;                }
+&nbsp;
+&nbsp;        }
+&nbsp;
+&nbsp;    private fun getPercentChange(changePercent24Hr: String): String {
+<b class="fc">&nbsp;        val changeValue: Double = changePercent24Hr.toDouble()</b>
+<b class="pc">&nbsp;        val isNegative: Boolean = changeValue &lt; 0.0</b>
+<b class="fc">&nbsp;        val decimalFormat = DecimalFormat(&quot;0.00&quot;)</b>
+<b class="pc">&nbsp;        val sign = if (isNegative) {</b>
+<b class="nc">&nbsp;            &quot;-&quot;</b>
+&nbsp;        } else {
+<b class="fc">&nbsp;            &quot;+&quot;</b>
+&nbsp;        }
+&nbsp;
+<b class="fc">&nbsp;        return &quot;$sign${decimalFormat.format(changeValue)} %&quot;</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-07-09 07:29</div>
+</div>
+</body>
+</html>

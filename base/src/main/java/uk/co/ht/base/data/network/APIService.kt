@@ -6,7 +6,7 @@ import uk.co.ht.base.data.dto.ExchangeResponse
 
 interface APIService {
     @GET("assets")
-    suspend fun getAssets(): Result<AssetsResponse>
+    suspend fun getCoins(): Result<AssetsResponse>
 
     @GET("exchanges")
     suspend fun getExchanges(): Result<ExchangeResponse>

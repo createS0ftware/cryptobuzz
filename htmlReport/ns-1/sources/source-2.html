@@ -1,0 +1,406 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > CryptoBuzzTheme</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">&lt;empty package name&gt;</a>
+</div>
+
+<h1>Coverage Summary for Class: CryptoBuzzTheme (&lt;empty package name&gt;)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">CryptoBuzzTheme</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;import androidx.compose.material.MaterialTheme
+&nbsp;import androidx.compose.material.darkColors
+&nbsp;import androidx.compose.material.lightColors
+&nbsp;import androidx.compose.runtime.Composable
+&nbsp;import androidx.compose.runtime.CompositionLocalProvider
+&nbsp;import androidx.compose.runtime.Stable
+&nbsp;import androidx.compose.runtime.getValue
+&nbsp;import androidx.compose.runtime.mutableStateOf
+&nbsp;import androidx.compose.runtime.setValue
+&nbsp;import androidx.compose.runtime.staticCompositionLocalOf
+&nbsp;import androidx.compose.ui.graphics.Color
+&nbsp;import uk.co.ht.cryptobuzz.presentation.theme.FunctionalRed
+&nbsp;import uk.co.ht.cryptobuzz.presentation.theme.FunctionalRedDark
+&nbsp;import uk.co.ht.cryptobuzz.presentation.theme.GoldenHue
+&nbsp;import uk.co.ht.cryptobuzz.presentation.theme.Neutral0
+&nbsp;import uk.co.ht.cryptobuzz.presentation.theme.Neutral1
+&nbsp;import uk.co.ht.cryptobuzz.presentation.theme.Neutral4
+&nbsp;import uk.co.ht.cryptobuzz.presentation.theme.Neutral5
+&nbsp;import uk.co.ht.cryptobuzz.presentation.theme.Neutral7
+&nbsp;import uk.co.ht.cryptobuzz.presentation.theme.Neutral8
+&nbsp;import uk.co.ht.cryptobuzz.presentation.theme.Ocean0
+&nbsp;import uk.co.ht.cryptobuzz.presentation.theme.Ocean1
+&nbsp;import uk.co.ht.cryptobuzz.presentation.theme.Ocean10
+&nbsp;import uk.co.ht.cryptobuzz.presentation.theme.Ocean11
+&nbsp;import uk.co.ht.cryptobuzz.presentation.theme.Ocean2
+&nbsp;import uk.co.ht.cryptobuzz.presentation.theme.Ocean3
+&nbsp;import uk.co.ht.cryptobuzz.presentation.theme.Ocean4
+&nbsp;import uk.co.ht.cryptobuzz.presentation.theme.Ocean5
+&nbsp;import uk.co.ht.cryptobuzz.presentation.theme.Ocean6
+&nbsp;import uk.co.ht.cryptobuzz.presentation.theme.Ocean7
+&nbsp;import uk.co.ht.cryptobuzz.presentation.theme.Ocean8
+&nbsp;import uk.co.ht.cryptobuzz.presentation.theme.Ocean9
+&nbsp;
+&nbsp;@Stable
+&nbsp;class CryptoBuzzColours(
+&nbsp;    gradient6_1: List&lt;Color&gt;,
+&nbsp;    gradient6_2: List&lt;Color&gt;,
+&nbsp;    gradient3_1: List&lt;Color&gt;,
+&nbsp;    gradient3_2: List&lt;Color&gt;,
+&nbsp;    gradient2_1: List&lt;Color&gt;,
+&nbsp;    gradient2_2: List&lt;Color&gt;,
+&nbsp;    gradient2_3: List&lt;Color&gt;,
+&nbsp;    brand: Color,
+&nbsp;    brandSecondary: Color,
+&nbsp;    uiBackground: Color,
+&nbsp;    uiBorder: Color,
+&nbsp;    uiFloated: Color,
+&nbsp;    interactivePrimary: List&lt;Color&gt; = gradient2_1,
+&nbsp;    interactiveSecondary: List&lt;Color&gt; = gradient2_2,
+&nbsp;    interactiveMask: List&lt;Color&gt; = gradient6_1,
+&nbsp;    textPrimary: Color = brand,
+&nbsp;    textSecondary: Color,
+&nbsp;    textHelp: Color,
+&nbsp;    textInteractive: Color,
+&nbsp;    textLink: Color,
+&nbsp;    tornado1: List&lt;Color&gt;,
+&nbsp;    iconPrimary: Color = brand,
+&nbsp;    iconSecondary: Color,
+&nbsp;    iconInteractive: Color,
+&nbsp;    iconInteractiveInactive: Color,
+&nbsp;    error: Color,
+&nbsp;    notificationBadge: Color = error,
+&nbsp;    isDark: Boolean,
+&nbsp;    goldHue: Color
+&nbsp;) {
+&nbsp;    var gradient6_1 by mutableStateOf(gradient6_1)
+&nbsp;        private set
+&nbsp;    var gradient6_2 by mutableStateOf(gradient6_2)
+&nbsp;        private set
+&nbsp;    var gradient3_1 by mutableStateOf(gradient3_1)
+&nbsp;        private set
+&nbsp;    var gradient3_2 by mutableStateOf(gradient3_2)
+&nbsp;        private set
+&nbsp;    var gradient2_1 by mutableStateOf(gradient2_1)
+&nbsp;        private set
+&nbsp;    var gradient2_2 by mutableStateOf(gradient2_2)
+&nbsp;        private set
+&nbsp;    var gradient2_3 by mutableStateOf(gradient2_3)
+&nbsp;        private set
+&nbsp;    var brand by mutableStateOf(brand)
+&nbsp;        private set
+&nbsp;    var brandSecondary by mutableStateOf(brandSecondary)
+&nbsp;        private set
+&nbsp;    var uiBackground by mutableStateOf(uiBackground)
+&nbsp;        private set
+&nbsp;    var uiBorder by mutableStateOf(uiBorder)
+&nbsp;        private set
+&nbsp;    var uiFloated by mutableStateOf(uiFloated)
+&nbsp;        private set
+&nbsp;    var interactivePrimary by mutableStateOf(interactivePrimary)
+&nbsp;        private set
+&nbsp;    var interactiveSecondary by mutableStateOf(interactiveSecondary)
+&nbsp;        private set
+&nbsp;    var interactiveMask by mutableStateOf(interactiveMask)
+&nbsp;        private set
+&nbsp;    var textPrimary by mutableStateOf(textPrimary)
+&nbsp;        private set
+&nbsp;    var textSecondary by mutableStateOf(textSecondary)
+&nbsp;        private set
+&nbsp;    var textHelp by mutableStateOf(textHelp)
+&nbsp;        private set
+&nbsp;    var textInteractive by mutableStateOf(textInteractive)
+&nbsp;        private set
+&nbsp;    var tornado1 by mutableStateOf(tornado1)
+&nbsp;        private set
+&nbsp;    var textLink by mutableStateOf(textLink)
+&nbsp;        private set
+&nbsp;    var iconPrimary by mutableStateOf(iconPrimary)
+&nbsp;        private set
+&nbsp;    var iconSecondary by mutableStateOf(iconSecondary)
+&nbsp;        private set
+&nbsp;    var iconInteractive by mutableStateOf(iconInteractive)
+&nbsp;        private set
+&nbsp;    var iconInteractiveInactive by mutableStateOf(iconInteractiveInactive)
+&nbsp;        private set
+&nbsp;    var error by mutableStateOf(error)
+&nbsp;        private set
+&nbsp;    var notificationBadge by mutableStateOf(notificationBadge)
+&nbsp;        private set
+&nbsp;    var isDark by mutableStateOf(isDark)
+&nbsp;        private set
+&nbsp;    var goldHue by mutableStateOf(goldHue)
+&nbsp;        private set
+&nbsp;
+&nbsp;    fun update(other: CryptoBuzzColours) {
+&nbsp;        gradient6_1 = other.gradient6_1
+&nbsp;        gradient6_2 = other.gradient6_2
+&nbsp;        gradient3_1 = other.gradient3_1
+&nbsp;        gradient3_2 = other.gradient3_2
+&nbsp;        gradient2_1 = other.gradient2_1
+&nbsp;        gradient2_2 = other.gradient2_2
+&nbsp;        gradient2_3 = other.gradient2_3
+&nbsp;        brand = other.brand
+&nbsp;        brandSecondary = other.brandSecondary
+&nbsp;        uiBackground = other.uiBackground
+&nbsp;        uiBorder = other.uiBorder
+&nbsp;        uiFloated = other.uiFloated
+&nbsp;        interactivePrimary = other.interactivePrimary
+&nbsp;        interactiveSecondary = other.interactiveSecondary
+&nbsp;        interactiveMask = other.interactiveMask
+&nbsp;        textPrimary = other.textPrimary
+&nbsp;        textSecondary = other.textSecondary
+&nbsp;        textHelp = other.textHelp
+&nbsp;        textInteractive = other.textInteractive
+&nbsp;        textLink = other.textLink
+&nbsp;        tornado1 = other.tornado1
+&nbsp;        iconPrimary = other.iconPrimary
+&nbsp;        iconSecondary = other.iconSecondary
+&nbsp;        iconInteractive = other.iconInteractive
+&nbsp;        iconInteractiveInactive = other.iconInteractiveInactive
+&nbsp;        error = other.error
+&nbsp;        notificationBadge = other.notificationBadge
+&nbsp;        isDark = other.isDark
+&nbsp;        goldHue = other.goldHue
+&nbsp;    }
+&nbsp;
+&nbsp;    fun copy(): CryptoBuzzColours = CryptoBuzzColours(
+&nbsp;        gradient6_1 = gradient6_1,
+&nbsp;        gradient6_2 = gradient6_2,
+&nbsp;        gradient3_1 = gradient3_1,
+&nbsp;        gradient3_2 = gradient3_2,
+&nbsp;        gradient2_1 = gradient2_1,
+&nbsp;        gradient2_2 = gradient2_2,
+&nbsp;        gradient2_3 = gradient2_3,
+&nbsp;        brand = brand,
+&nbsp;        brandSecondary = brandSecondary,
+&nbsp;        uiBackground = uiBackground,
+&nbsp;        uiBorder = uiBorder,
+&nbsp;        uiFloated = uiFloated,
+&nbsp;        interactivePrimary = interactivePrimary,
+&nbsp;        interactiveSecondary = interactiveSecondary,
+&nbsp;        interactiveMask = interactiveMask,
+&nbsp;        textPrimary = textPrimary,
+&nbsp;        textSecondary = textSecondary,
+&nbsp;        textHelp = textHelp,
+&nbsp;        textInteractive = textInteractive,
+&nbsp;        textLink = textLink,
+&nbsp;        tornado1 = tornado1,
+&nbsp;        iconPrimary = iconPrimary,
+&nbsp;        iconSecondary = iconSecondary,
+&nbsp;        iconInteractive = iconInteractive,
+&nbsp;        iconInteractiveInactive = iconInteractiveInactive,
+&nbsp;        error = error,
+&nbsp;        notificationBadge = notificationBadge,
+&nbsp;        isDark = isDark,
+&nbsp;        goldHue = GoldenHue,
+&nbsp;    )
+&nbsp;}
+&nbsp;
+&nbsp;
+&nbsp;val LightCryptoBuzzColours = CryptoBuzzColours(
+&nbsp;    gradient6_1 = listOf(Ocean11, Ocean10, Ocean9, Ocean8, Ocean7, Ocean6),
+&nbsp;    gradient6_2 = listOf(Ocean5, Ocean4, Ocean3, Ocean2, Ocean1, Ocean0),
+&nbsp;    gradient3_1 = listOf(Ocean11, Ocean10, Ocean9),
+&nbsp;    gradient3_2 = listOf(Ocean8, Ocean7, Ocean6),
+&nbsp;    gradient2_1 = listOf(Ocean5, Ocean4),
+&nbsp;    gradient2_2 = listOf(Ocean3, Ocean2),
+&nbsp;    gradient2_3 = listOf(Ocean1, Ocean0),
+&nbsp;    brand = Ocean7,
+&nbsp;    brandSecondary = Ocean5,
+&nbsp;    uiBackground = Neutral0,
+&nbsp;    uiBorder = Neutral4,
+&nbsp;    uiFloated = Neutral1,
+&nbsp;    textPrimary = Ocean11,
+&nbsp;    textSecondary = Ocean10,
+&nbsp;    textHelp = Ocean9,
+&nbsp;    textInteractive = Ocean8,
+&nbsp;    textLink = Ocean7,
+&nbsp;    tornado1 = listOf(Ocean6),
+&nbsp;    iconPrimary = Ocean7,
+&nbsp;    iconSecondary = Ocean5,
+&nbsp;    iconInteractive = Ocean4,
+&nbsp;    iconInteractiveInactive = Ocean3,
+&nbsp;    error = FunctionalRed,
+&nbsp;    notificationBadge = FunctionalRed,
+&nbsp;    interactivePrimary = listOf(Ocean5, Ocean4),
+&nbsp;    interactiveSecondary = listOf(Ocean3, Ocean2),
+&nbsp;    interactiveMask = listOf(Ocean11, Ocean10),
+&nbsp;    isDark = false,
+&nbsp;    goldHue = GoldenHue
+&nbsp;)
+&nbsp;
+&nbsp;val DarkCryptoBuzzColours = CryptoBuzzColours(
+&nbsp;    gradient6_1 = listOf(Ocean11, Ocean10, Ocean9, Ocean8, Ocean7, Ocean6),
+&nbsp;    gradient6_2 = listOf(Ocean5, Ocean4, Ocean3, Ocean2, Ocean1, Ocean0),
+&nbsp;    gradient3_1 = listOf(Ocean11, Ocean10, Ocean9),
+&nbsp;    gradient3_2 = listOf(Ocean8, Ocean7, Ocean6),
+&nbsp;    gradient2_1 = listOf(Ocean5, Ocean4),
+&nbsp;    gradient2_2 = listOf(Ocean3, Ocean2),
+&nbsp;    gradient2_3 = listOf(Ocean1, Ocean0),
+&nbsp;    brand = Ocean7,
+&nbsp;    brandSecondary = Ocean5,
+&nbsp;    uiBackground = Neutral8,
+&nbsp;    uiBorder = Neutral5,
+&nbsp;    uiFloated = Neutral7,
+&nbsp;    interactivePrimary = listOf(Ocean5, Ocean4),
+&nbsp;    interactiveSecondary = listOf(Ocean3, Ocean2),
+&nbsp;    interactiveMask = listOf(Ocean11, Ocean10),
+&nbsp;    textPrimary = Neutral0,
+&nbsp;    textSecondary = Ocean1,
+&nbsp;    textHelp = Ocean2,
+&nbsp;    textInteractive = Ocean3,
+&nbsp;    textLink = Ocean4,
+&nbsp;    tornado1 = listOf(Ocean5),
+&nbsp;    iconPrimary = Ocean7,
+&nbsp;    iconSecondary = Ocean5,
+&nbsp;    iconInteractive = Ocean4,
+&nbsp;    iconInteractiveInactive = Ocean3,
+&nbsp;    error = FunctionalRedDark,
+&nbsp;    notificationBadge = FunctionalRedDark,
+&nbsp;    isDark = true,
+&nbsp;    goldHue = GoldenHue
+&nbsp;)
+&nbsp;
+&nbsp;val LocalCryptoBuzzColours = staticCompositionLocalOf {
+&nbsp;    LightCryptoBuzzColours
+&nbsp;}
+&nbsp;
+&nbsp;@Composable
+&nbsp;fun CryptoBuzzTheme(
+&nbsp;    colours: CryptoBuzzColours = LightCryptoBuzzColours,
+&nbsp;    content: @Composable () -&gt; Unit
+&nbsp;) {
+&nbsp;    val colors = if (colours.isDark) {
+&nbsp;        darkColors(
+&nbsp;            primary = colours.brand,
+&nbsp;            primaryVariant = colours.brandSecondary,
+&nbsp;            secondary = colours.textPrimary,
+&nbsp;            background = colours.uiBackground,
+&nbsp;            surface = colours.uiFloated,
+&nbsp;            onPrimary = colours.uiBackground,
+&nbsp;            onSecondary = colours.uiBackground,
+&nbsp;            onBackground = colours.textPrimary,
+&nbsp;            onSurface = colours.textPrimary
+&nbsp;        )
+&nbsp;    } else {
+&nbsp;        lightColors(
+&nbsp;            primary = colours.brand,
+&nbsp;            primaryVariant = colours.brandSecondary,
+&nbsp;            secondary = colours.textPrimary,
+&nbsp;            background = colours.uiBackground,
+&nbsp;            surface = colours.uiFloated,
+&nbsp;            onPrimary = colours.uiBackground,
+&nbsp;            onSecondary = colours.uiBackground,
+&nbsp;            onBackground = colours.textPrimary,
+&nbsp;            onSurface = colours.textPrimary
+&nbsp;        )
+&nbsp;    }
+&nbsp;
+&nbsp;    CompositionLocalProvider(LocalCryptoBuzzColours provides colours) {
+&nbsp;        MaterialTheme(
+&nbsp;            colors = colors,
+&nbsp;            content = content
+&nbsp;        )
+&nbsp;    }
+&nbsp;}
+&nbsp;
+&nbsp;object CryptoBuzzTheme {
+&nbsp;    val colours: CryptoBuzzColours
+&nbsp;        @Composable
+<b class="nc">&nbsp;        get() = LocalCryptoBuzzColours.current</b>
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-07-09 07:29</div>
+</div>
+</body>
+</html>

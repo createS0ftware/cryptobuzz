@@ -1,0 +1,95 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > CoinCapRepository</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">uk.co.ht.base.domain.repository</a>
+</div>
+
+<h1>Coverage Summary for Class: CoinCapRepository (uk.co.ht.base.domain.repository)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">CoinCapRepository$Subclass0</td>
+  </tr>
+  <tr>
+    <td class="name">CoinCapRepository$Subclass0$auxiliary$cUQxU2nG</td>
+  </tr>
+  <tr>
+    <td class="name">CoinCapRepository$Subclass0$auxiliary$cvEgtyjd</td>
+  </tr>
+  <tr>
+    <td class="name">CoinCapRepository$Subclass0$auxiliary$LxlJO18D</td>
+  </tr>
+  <tr>
+    <td class="name">CoinCapRepository$Subclass0$auxiliary$Uu1q42oc</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package uk.co.ht.base.domain.repository
+&nbsp;
+&nbsp;import kotlinx.coroutines.flow.Flow
+&nbsp;import uk.co.ht.base.data.dto.CoinObject
+&nbsp;import uk.co.ht.base.data.dto.ExchangeObject
+&nbsp;
+&nbsp;interface CoinCapRepository {
+&nbsp;    suspend fun getTopTenExchanges(): Flow&lt;CoinCapRepositoryResult&lt;List&lt;ExchangeObject&gt;&gt;&gt;
+&nbsp;
+&nbsp;    suspend fun getTopTenCoins(): Flow&lt;CoinCapRepositoryResult&lt;List&lt;CoinObject&gt;&gt;&gt;
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-07-09 07:29</div>
+</div>
+</body>
+</html>

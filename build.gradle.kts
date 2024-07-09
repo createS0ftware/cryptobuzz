@@ -5,4 +5,5 @@ plugins {
     alias(libs.plugins.androidLibrary) apply false
     alias(libs.plugins.compose.compiler) apply false
     id("com.google.dagger.hilt.android") version "2.51" apply false
+    //id("de.mannodermaus.android-junit5") version "1.10.0.0"
 }

@@ -3,13 +3,9 @@ import org.gradle.kotlin.dsl.provider.inClassPathMode
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
-    //alias(libs.plugins.daggerHilt) apply false
     alias(libs.plugins.compose.compiler)
-
     id("com.google.dagger.hilt.android")
     id("kotlin-kapt")
-
-//id("com.google.devtools.ksp") version "1.7.20-1.0.8"
 }
 
 android {
@@ -67,10 +63,26 @@ android {
         }
     }
 
+    packaging {
+        resources.excludes += "META-INF/LICENSE*"
+        resources.excludes += "META-INF/NOTICE"
+        resources.excludes += "META-INF/NOTICE.txt"
+    }
+
+    kapt {
+        arguments {
+            arg("dagger.fastInit", "enabled")
+            arg("dagger.hilt.android.internal.disableAndroidSuperclassValidation", "true")
+            arg("dagger.hilt.android.internal.projectType", "APP")
+            arg("dagger.hilt.internal.useAggregatingRootProcessor", "true")
+            arg("kapt.kotlin.generated", layout.buildDirectory.dir("generated/source/kaptKotlin").get().asFile.path)
+        }
+    }
 }
 
 dependencies {
 
+    //testImplementation(libs.testng)
     kapt(libs.hilt.compiler)
 
 
@@ -93,7 +105,7 @@ dependencies {
     implementation(libs.androidx.compose.animation)
 
     implementation(platform(libs.androidx.compose.bom))
-    implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
+    implementation(libs.kotlin.bom)
 
     implementation(libs.accompanist.systemuicontroller)
 
@@ -105,27 +117,24 @@ dependencies {
 
     implementation(project(":base"))
 
-    testImplementation(libs.junit)
-    testImplementation(libs.mockito.core)
-    testImplementation(libs.mockito.kotlin)
-    testImplementation(libs.kotlin.test.junit)
     testImplementation(libs.jetbrains.kotlinx.coroutines.test)
+
+    testImplementation(libs.mockk.mockk)
+    testImplementation(libs.mockk.mockk.android)
+    testImplementation(libs.mockk.agent)
 
     testImplementation(libs.junit.jupiter.api)
     testRuntimeOnly(libs.junit.jupiter.engine)
-    testImplementation(libs.mockito.junit.jupiter)
+
     testImplementation(libs.junit.jupiter)
     testImplementation(libs.junit.jupiter.params)
-
-    testImplementation(libs.jetbrains.kotlinx.coroutines.test)
-
     testRuntimeOnly(libs.junit.platform.launcher)
     testImplementation(kotlin("test"))
 
-    androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.ui.test.junit4)
-    debugImplementation(libs.androidx.ui.tooling)
-    debugImplementation(libs.androidx.ui.test.manifest)
+}
+
+tasks.withType<Test> {
+    useJUnitPlatform()
 }

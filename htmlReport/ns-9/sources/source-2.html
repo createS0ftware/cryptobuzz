@@ -1,0 +1,149 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > AppModule</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">uk.co.ht.cryptobuzz.data</a>
+</div>
+
+<h1>Coverage Summary for Class: AppModule (uk.co.ht.cryptobuzz.data)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">AppModule</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package uk.co.ht.cryptobuzz.data
+&nbsp;
+&nbsp;import android.app.Application
+&nbsp;import android.content.Context
+&nbsp;import dagger.Module
+&nbsp;import dagger.Provides
+&nbsp;import dagger.Reusable
+&nbsp;import dagger.hilt.InstallIn
+&nbsp;import dagger.hilt.android.components.ActivityComponent
+&nbsp;import dagger.hilt.android.components.ViewModelComponent
+&nbsp;import dagger.hilt.android.scopes.ActivityScoped
+&nbsp;import dagger.hilt.components.SingletonComponent
+&nbsp;import uk.co.ht.base.common.BuildVariableProvider
+&nbsp;import uk.co.ht.base.data.network.APIService
+&nbsp;import uk.co.ht.base.data.network.CoinCapRepositoryImpl
+&nbsp;import uk.co.ht.base.domain.repository.CoinCapRepository
+&nbsp;import uk.co.ht.cryptobuzz.CyberBuzzApplication
+&nbsp;import uk.co.ht.cryptobuzz.common.BuildVariableProviderImpl
+&nbsp;import uk.co.ht.cryptobuzz.domain.usecases.CoinUseCase
+&nbsp;import uk.co.ht.cryptobuzz.domain.usecases.ExchangeUseCase
+&nbsp;
+<b class="nc">&nbsp;@Module</b>
+&nbsp;@InstallIn(SingletonComponent::class)
+&nbsp;class AppModule {
+&nbsp;
+&nbsp;    @Provides
+&nbsp;    fun getBuildVariableProvider(): BuildVariableProvider {
+<b class="nc">&nbsp;        return BuildVariableProviderImpl()</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Provides
+&nbsp;    fun provideRepository (apiService: APIService): CoinCapRepository {
+<b class="nc">&nbsp;        return CoinCapRepositoryImpl(apiService)</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Provides
+&nbsp;    fun provideExchangeUseCase(repository: CoinCapRepository): ExchangeUseCase {
+<b class="nc">&nbsp;        return ExchangeUseCase(repository)</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Provides
+&nbsp;    fun provideCoinUseCase(repository: CoinCapRepository): CoinUseCase {
+<b class="nc">&nbsp;        return CoinUseCase(repository)</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-07-09 07:29</div>
+</div>
+</body>
+</html>

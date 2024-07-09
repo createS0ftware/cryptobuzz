@@ -1,0 +1,374 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > CryptoBuzzTableKt</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">uk.co.ht.cryptobuzz.presentation.components</a>
+</div>
+
+<h1>Coverage Summary for Class: CryptoBuzzTableKt (uk.co.ht.cryptobuzz.presentation.components)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">CryptoBuzzTableKt</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/30)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/81)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">CryptoBuzzTableKt$CryptoBuzzTable$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/7)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">CryptoBuzzTableKt$CryptoBuzzTable$2</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/32)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/159)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">CryptoBuzzTableKt$CryptoBuzzTable$2$1$1$2$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/66)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/248)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package uk.co.ht.cryptobuzz.presentation.components
+&nbsp;
+&nbsp;import androidx.compose.animation.AnimatedVisibility
+&nbsp;import androidx.compose.animation.ExperimentalAnimationApi
+&nbsp;import androidx.compose.animation.core.LinearEasing
+&nbsp;import androidx.compose.animation.core.tween
+&nbsp;import androidx.compose.animation.expandVertically
+&nbsp;import androidx.compose.animation.fadeIn
+&nbsp;import androidx.compose.animation.fadeOut
+&nbsp;import androidx.compose.animation.shrinkVertically
+&nbsp;import androidx.compose.foundation.background
+&nbsp;import androidx.compose.foundation.border
+&nbsp;import androidx.compose.foundation.layout.Box
+&nbsp;import androidx.compose.foundation.layout.Column
+&nbsp;import androidx.compose.foundation.layout.Row
+&nbsp;import androidx.compose.foundation.layout.fillMaxSize
+&nbsp;import androidx.compose.foundation.layout.fillMaxWidth
+&nbsp;import androidx.compose.foundation.layout.padding
+&nbsp;import androidx.compose.foundation.rememberScrollState
+&nbsp;import androidx.compose.foundation.shape.RoundedCornerShape
+&nbsp;import androidx.compose.foundation.verticalScroll
+&nbsp;import androidx.compose.material.MaterialTheme
+&nbsp;import androidx.compose.material.SnackbarDefaults.backgroundColor
+&nbsp;import androidx.compose.material.Text
+&nbsp;import androidx.compose.runtime.Composable
+&nbsp;import androidx.compose.runtime.LaunchedEffect
+&nbsp;import androidx.compose.runtime.getValue
+&nbsp;import androidx.compose.runtime.mutableIntStateOf
+&nbsp;import androidx.compose.runtime.remember
+&nbsp;import androidx.compose.runtime.setValue
+&nbsp;import androidx.compose.ui.Alignment
+&nbsp;import androidx.compose.ui.Modifier
+&nbsp;import androidx.compose.ui.graphics.Color
+&nbsp;import androidx.compose.ui.graphics.SolidColor
+&nbsp;import androidx.compose.ui.tooling.preview.Preview
+&nbsp;import androidx.compose.ui.unit.dp
+&nbsp;import kotlinx.coroutines.delay
+&nbsp;import uk.co.ht.cryptobuzz.domain.models.AssetInfoData
+&nbsp;
+&nbsp;
+&nbsp;@Composable
+<b class="nc">&nbsp;fun TableRow(rowData: AssetInfoData, backgroundColour: Color) {</b>
+<b class="nc">&nbsp;    Row(</b>
+<b class="nc">&nbsp;        modifier = Modifier</b>
+<b class="nc">&nbsp;            .fillMaxWidth()</b>
+<b class="nc">&nbsp;            .background(backgroundColor)</b>
+<b class="nc">&nbsp;            .padding(8.dp)</b>
+&nbsp;    ) {
+<b class="nc">&nbsp;        Text(</b>
+<b class="nc">&nbsp;            text = rowData.assetRank.toString(),</b>
+<b class="nc">&nbsp;            style = MaterialTheme.typography.subtitle1,</b>
+<b class="nc">&nbsp;            modifier = Modifier.weight(0.5f)</b>
+&nbsp;        )
+<b class="nc">&nbsp;        Text(</b>
+<b class="nc">&nbsp;            text = rowData.assetName,</b>
+<b class="nc">&nbsp;            style = MaterialTheme.typography.subtitle1,</b>
+<b class="nc">&nbsp;            modifier = Modifier.weight(1f)</b>
+&nbsp;        )
+<b class="nc">&nbsp;        Text(</b>
+<b class="nc">&nbsp;            text = rowData.assetValue,</b>
+<b class="nc">&nbsp;            style = MaterialTheme.typography.subtitle1,</b>
+<b class="nc">&nbsp;            modifier = Modifier.weight(1.5f)</b>
+&nbsp;        )
+<b class="nc">&nbsp;    }</b>
+<b class="nc">&nbsp;}</b>
+&nbsp;
+&nbsp;@OptIn(ExperimentalAnimationApi::class)
+&nbsp;@Composable
+<b class="nc">&nbsp;fun CryptoBuzzTable(data: List&lt;AssetInfoData&gt;, showsCoins: Boolean = true) {</b>
+<b class="nc">&nbsp;    var currentRowIndex by remember { mutableIntStateOf(0) }</b>
+&nbsp;
+<b class="nc">&nbsp;    LaunchedEffect(data) {</b>
+<b class="nc">&nbsp;        data.forEachIndexed { index, _ -&gt;</b>
+<b class="nc">&nbsp;            delay(100)  // Delay for each row animation</b>
+<b class="nc">&nbsp;            currentRowIndex = index + 1</b>
+<b class="nc">&nbsp;        }</b>
+&nbsp;    }
+<b class="nc">&nbsp;    AnimatedVisibility(</b>
+<b class="nc">&nbsp;        visible = true,</b>
+<b class="nc">&nbsp;        enter = fadeIn(</b>
+<b class="nc">&nbsp;            animationSpec = tween(</b>
+<b class="nc">&nbsp;                durationMillis = 1500,</b>
+<b class="nc">&nbsp;                easing = LinearEasing</b>
+&nbsp;            )
+&nbsp;        ),
+<b class="nc">&nbsp;        exit = fadeOut()</b>
+<b class="nc">&nbsp;    ) {</b>
+<b class="nc">&nbsp;        Box(</b>
+<b class="nc">&nbsp;            contentAlignment = Alignment.Center,</b>
+<b class="nc">&nbsp;            modifier = Modifier</b>
+<b class="nc">&nbsp;                .fillMaxSize()</b>
+<b class="nc">&nbsp;                .background(MaterialTheme.colors.background)</b>
+&nbsp;        ) {
+<b class="nc">&nbsp;            Column(</b>
+<b class="nc">&nbsp;                modifier = Modifier</b>
+<b class="nc">&nbsp;                    .padding(16.dp)</b>
+<b class="nc">&nbsp;                    .border(</b>
+<b class="nc">&nbsp;                        1.dp,</b>
+<b class="nc">&nbsp;                        SolidColor(MaterialTheme.colors.onBackground),</b>
+<b class="nc">&nbsp;                        RoundedCornerShape(4.dp)</b>
+&nbsp;                    )
+<b class="nc">&nbsp;                    .background(MaterialTheme.colors.surface)</b>
+<b class="nc">&nbsp;                    .verticalScroll(rememberScrollState())</b>
+&nbsp;            )
+&nbsp;            {
+<b class="nc">&nbsp;                Row(</b>
+<b class="nc">&nbsp;                    modifier = Modifier</b>
+<b class="nc">&nbsp;                        .fillMaxWidth()</b>
+<b class="nc">&nbsp;                        .background(MaterialTheme.colors.primary)</b>
+<b class="nc">&nbsp;                        .padding(8.dp)</b>
+&nbsp;                ) {
+<b class="nc">&nbsp;                    Text(</b>
+<b class="nc">&nbsp;                        text = &quot;Rank&quot;,</b>
+<b class="nc">&nbsp;                        style = MaterialTheme.typography.subtitle1,</b>
+<b class="nc">&nbsp;                        modifier = Modifier.weight(0.5f)</b>
+&nbsp;                    )
+<b class="nc">&nbsp;                    Text(</b>
+<b class="nc">&nbsp;                        text = &quot;Exchange&quot;,</b>
+<b class="nc">&nbsp;                        style = MaterialTheme.typography.subtitle1,</b>
+<b class="nc">&nbsp;                        modifier = Modifier.weight(1f)</b>
+&nbsp;                    )
+<b class="nc">&nbsp;                    Text(</b>
+<b class="nc">&nbsp;                        text = if (showsCoins) {</b>
+<b class="nc">&nbsp;                            &quot;24Hr Change (%)&quot;</b>
+&nbsp;                        } else {
+<b class="nc">&nbsp;                            &quot;24Hr Volume (USD)&quot;</b>
+&nbsp;                        },
+<b class="nc">&nbsp;                        style = MaterialTheme.typography.subtitle1,</b>
+<b class="nc">&nbsp;                        modifier = Modifier.weight(1.5f)</b>
+&nbsp;                    )
+<b class="nc">&nbsp;                }</b>
+<b class="nc">&nbsp;                data.take(currentRowIndex)</b>
+<b class="nc">&nbsp;                    .forEachIndexed { index, row -&gt;</b>
+<b class="nc">&nbsp;                        val backgroundColor =</b>
+<b class="nc">&nbsp;                            if (index % 2 == 0) MaterialTheme.colors.onBackground.copy(alpha = 0.1f)</b>
+<b class="nc">&nbsp;                            else MaterialTheme.colors.onSurface.copy(alpha = 0.8f)</b>
+<b class="nc">&nbsp;                        AnimatedVisibility(</b>
+<b class="nc">&nbsp;                            visible = true,</b>
+<b class="nc">&nbsp;                            enter = fadeIn(</b>
+<b class="nc">&nbsp;                                animationSpec = tween(</b>
+<b class="nc">&nbsp;                                    durationMillis = 500,</b>
+<b class="nc">&nbsp;                                    easing = LinearEasing</b>
+&nbsp;                                )
+<b class="nc">&nbsp;                            ) + expandVertically(</b>
+<b class="nc">&nbsp;                                animationSpec = tween(</b>
+<b class="nc">&nbsp;                                    durationMillis = 500,</b>
+<b class="nc">&nbsp;                                    easing = LinearEasing</b>
+&nbsp;                                )
+&nbsp;                            ),
+<b class="nc">&nbsp;                            exit = fadeOut() + shrinkVertically()</b>
+<b class="nc">&nbsp;                        ) {</b>
+<b class="nc">&nbsp;                            TableRow(row, backgroundColor)</b>
+&nbsp;                        }
+<b class="nc">&nbsp;                    }</b>
+<b class="nc">&nbsp;            }</b>
+<b class="nc">&nbsp;        }</b>
+&nbsp;    }
+&nbsp;}
+&nbsp;
+&nbsp;@Preview(showBackground = true)
+&nbsp;@Composable
+<b class="nc">&nbsp;fun AnimatedTablePreview() {</b>
+<b class="nc">&nbsp;    val sampleData = listOf(</b>
+<b class="nc">&nbsp;        AssetInfoData(&quot;Binance&quot;, 1, &quot;$1.3billion&quot;),</b>
+<b class="nc">&nbsp;        AssetInfoData(&quot;Binance&quot;, 2, &quot;$1.3billion&quot;),</b>
+<b class="nc">&nbsp;        AssetInfoData(&quot;Binance&quot;, 3, &quot;$1.3billion&quot;),</b>
+&nbsp;    )
+&nbsp;
+<b class="nc">&nbsp;    CryptoBuzzTable(data = sampleData)</b>
+<b class="nc">&nbsp;}</b>
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-07-09 07:29</div>
+</div>
+</body>
+</html>

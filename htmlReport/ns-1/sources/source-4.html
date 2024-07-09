@@ -1,0 +1,229 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > CustomResultCall</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">&lt;empty package name&gt;</a>
+</div>
+
+<h1>Coverage Summary for Class: CustomResultCall (&lt;empty package name&gt;)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">CustomResultCall</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/9)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/10)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">CustomResultCall$enqueue$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/19)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/29)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;import okhttp3.Request
+&nbsp;import okio.Timeout
+&nbsp;import retrofit2.Call
+&nbsp;import retrofit2.Callback
+&nbsp;import retrofit2.HttpException
+&nbsp;import retrofit2.Response
+&nbsp;import java.io.IOException
+&nbsp;import java.lang.RuntimeException
+&nbsp;
+<b class="nc">&nbsp;class CustomResultCall&lt;T&gt;(val delegate: Call&lt;T&gt;) :</b>
+&nbsp;    Call&lt;Result&lt;T&gt;&gt; {
+&nbsp;
+&nbsp;    override fun enqueue(callback: Callback&lt;Result&lt;T&gt;&gt;) {
+<b class="nc">&nbsp;        delegate.enqueue(</b>
+<b class="nc">&nbsp;            object : Callback&lt;T&gt; {</b>
+&nbsp;                override fun onResponse(call: Call&lt;T&gt;, response: Response&lt;T&gt;) {
+<b class="nc">&nbsp;                    if (response.isSuccessful) {</b>
+<b class="nc">&nbsp;                        callback.onResponse(</b>
+<b class="nc">&nbsp;                            this@CustomResultCall,</b>
+<b class="nc">&nbsp;                            Response.success(</b>
+<b class="nc">&nbsp;                                response.code(),</b>
+<b class="nc">&nbsp;                                Result.success(response.body()!!)</b>
+&nbsp;                            )
+&nbsp;                        )
+&nbsp;                    } else {
+<b class="nc">&nbsp;                        callback.onResponse(</b>
+<b class="nc">&nbsp;                            this@CustomResultCall,</b>
+<b class="nc">&nbsp;                            Response.success(</b>
+<b class="nc">&nbsp;                                Result.failure(</b>
+<b class="nc">&nbsp;                                    HttpException(response)</b>
+&nbsp;                                )
+&nbsp;                            )
+&nbsp;                        )
+&nbsp;                    }
+&nbsp;                }
+&nbsp;
+&nbsp;                override fun onFailure(call: Call&lt;T&gt;, t: Throwable) {
+<b class="nc">&nbsp;                    val errorMessage = when (t) {</b>
+<b class="nc">&nbsp;                        is IOException -&gt; &quot;No internet connection&quot;</b>
+<b class="nc">&nbsp;                        is HttpException -&gt; &quot;Something went wrong!&quot;</b>
+<b class="nc">&nbsp;                        else -&gt; t.localizedMessage</b>
+&nbsp;                    }
+<b class="nc">&nbsp;                    callback.onResponse(</b>
+<b class="nc">&nbsp;                        this@CustomResultCall,</b>
+<b class="nc">&nbsp;                        Response.success(Result.failure(RuntimeException(errorMessage, t)))</b>
+&nbsp;                    )
+&nbsp;                }
+&nbsp;            }
+&nbsp;        )
+&nbsp;    }
+&nbsp;
+&nbsp;    override fun isExecuted(): Boolean {
+<b class="nc">&nbsp;        return delegate.isExecuted</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    override fun execute(): Response&lt;Result&lt;T&gt;&gt; {
+<b class="nc">&nbsp;        return Response.success(Result.success(delegate.execute().body()!!))</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    override fun cancel() {
+<b class="nc">&nbsp;        delegate.cancel()</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    override fun isCanceled(): Boolean {
+<b class="nc">&nbsp;        return delegate.isCanceled</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    override fun clone(): Call&lt;Result&lt;T&gt;&gt; {
+<b class="nc">&nbsp;        return CustomResultCall(delegate.clone())</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    override fun request(): Request {
+<b class="nc">&nbsp;        return delegate.request()</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    override fun timeout(): Timeout {
+<b class="nc">&nbsp;        return delegate.timeout()</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-07-09 07:29</div>
+</div>
+</body>
+</html>
