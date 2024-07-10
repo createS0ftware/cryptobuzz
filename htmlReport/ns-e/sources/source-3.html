@@ -45,18 +45,18 @@ Current scope:     <a href="../../index.html">all classes</a>
   <td class="name">DashboardViewModel</td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    100%
   </span>
   <span class="absValue">
-    (0/8)
+    (8/8)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    100%
   </span>
   <span class="absValue">
-    (0/17)
+    (17/17)
   </span>
 </td>
 </tr>
@@ -64,18 +64,18 @@ Current scope:     <a href="../../index.html">all classes</a>
     <td class="name">DashboardViewModel$getTopCoinAsset$1</td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    100%
   </span>
   <span class="absValue">
-    (0/1)
+    (1/1)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    100%
   </span>
   <span class="absValue">
-    (0/1)
+    (1/1)
   </span>
 </td>
   </tr>
@@ -83,26 +83,26 @@ Current scope:     <a href="../../index.html">all classes</a>
     <td class="name">DashboardViewModel$getTopCoinAsset$1$1</td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    100%
   </span>
   <span class="absValue">
-    (0/1)
+    (1/1)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    16.7%
+    83.3%
   </span>
   <span class="absValue">
-    (1/6)
+    (5/6)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    100%
   </span>
   <span class="absValue">
-    (0/7)
+    (7/7)
   </span>
 </td>
   </tr>
@@ -110,18 +110,18 @@ Current scope:     <a href="../../index.html">all classes</a>
     <td class="name">DashboardViewModel$getTopTenCoins$1</td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    100%
   </span>
   <span class="absValue">
-    (0/1)
+    (1/1)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    100%
   </span>
   <span class="absValue">
-    (0/1)
+    (1/1)
   </span>
 </td>
   </tr>
@@ -129,18 +129,18 @@ Current scope:     <a href="../../index.html">all classes</a>
     <td class="name">DashboardViewModel$getTopTenExchanges$1</td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    100%
   </span>
   <span class="absValue">
-    (0/1)
+    (1/1)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    100%
   </span>
   <span class="absValue">
-    (0/1)
+    (1/1)
   </span>
 </td>
   </tr>
@@ -148,26 +148,26 @@ Current scope:     <a href="../../index.html">all classes</a>
     <td class="name">DashboardViewModel$getTopTenExchanges$1$1</td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    100%
   </span>
   <span class="absValue">
-    (0/1)
+    (1/1)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    16.7%
+    66.7%
   </span>
   <span class="absValue">
-    (1/6)
+    (4/6)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    100%
   </span>
   <span class="absValue">
-    (0/6)
+    (6/6)
   </span>
 </td>
   </tr>
@@ -175,26 +175,26 @@ Current scope:     <a href="../../index.html">all classes</a>
   <td class="name"><strong>Total</strong></td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    100%
   </span>
   <span class="absValue">
-    (0/13)
+    (13/13)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    16.7%
+    75%
   </span>
   <span class="absValue">
-    (2/12)
+    (9/12)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    100%
   </span>
   <span class="absValue">
-    (0/33)
+    (33/33)
   </span>
 </td>
 </tr>
@@ -226,34 +226,34 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;
 &nbsp;@HiltViewModel
 &nbsp;class DashboardViewModel @Inject constructor(
-<b class="nc">&nbsp;    private val exchangeUseCase: ExchangeUseCase,</b>
-<b class="nc">&nbsp;    private val coinUseCase: CoinUseCase</b>
-<b class="nc">&nbsp;) : ViewModel() {</b>
+<b class="fc">&nbsp;    private val exchangeUseCase: ExchangeUseCase,</b>
+<b class="fc">&nbsp;    private val coinUseCase: CoinUseCase</b>
+<b class="fc">&nbsp;) : ViewModel() {</b>
 &nbsp;
-<b class="nc">&nbsp;    private var topTenCoins: List&lt;AssetInfoData&gt; = mutableListOf()</b>
+<b class="fc">&nbsp;    private var topTenCoins: List&lt;AssetInfoData&gt; = mutableListOf()</b>
 &nbsp;    private val _primaryAssetStateFlow =
-<b class="nc">&nbsp;        MutableStateFlow&lt;CoinCapRepositoryResult&lt;AssetInfoData&gt;&gt;(Loading)</b>
+<b class="fc">&nbsp;        MutableStateFlow&lt;CoinCapRepositoryResult&lt;AssetInfoData&gt;&gt;(Loading)</b>
 &nbsp;    private val _secondaryAssetStateFlow =
-<b class="nc">&nbsp;        MutableStateFlow&lt;CoinCapRepositoryResult&lt;AssetInfoData&gt;&gt;(Loading)</b>
+<b class="fc">&nbsp;        MutableStateFlow&lt;CoinCapRepositoryResult&lt;AssetInfoData&gt;&gt;(Loading)</b>
 &nbsp;
-<b class="nc">&nbsp;    val primaryAssetStateFlow: StateFlow&lt;CoinCapRepositoryResult&lt;AssetInfoData&gt;&gt; =</b>
-<b class="nc">&nbsp;        _primaryAssetStateFlow.asStateFlow()</b>
-<b class="nc">&nbsp;    val secondaryAssetStateFlow: StateFlow&lt;CoinCapRepositoryResult&lt;AssetInfoData&gt;&gt; =</b>
-<b class="nc">&nbsp;        _secondaryAssetStateFlow.asStateFlow()</b>
-<b class="nc">&nbsp;    val exchangeDataSelected = MutableLiveData&lt;List&lt;AssetInfoData&gt;&gt;()</b>
-<b class="nc">&nbsp;    val coinDataSelected = MutableLiveData&lt;List&lt;AssetInfoData&gt;&gt;()</b>
+<b class="fc">&nbsp;    val primaryAssetStateFlow: StateFlow&lt;CoinCapRepositoryResult&lt;AssetInfoData&gt;&gt; =</b>
+<b class="fc">&nbsp;        _primaryAssetStateFlow.asStateFlow()</b>
+<b class="fc">&nbsp;    val secondaryAssetStateFlow: StateFlow&lt;CoinCapRepositoryResult&lt;AssetInfoData&gt;&gt; =</b>
+<b class="fc">&nbsp;        _secondaryAssetStateFlow.asStateFlow()</b>
+<b class="fc">&nbsp;    val exchangeDataSelected = MutableLiveData&lt;List&lt;AssetInfoData&gt;&gt;()</b>
+<b class="fc">&nbsp;    val coinDataSelected = MutableLiveData&lt;List&lt;AssetInfoData&gt;&gt;()</b>
 &nbsp;
 &nbsp;    fun getTopCoinAsset() {
-<b class="nc">&nbsp;        viewModelScope.launch {</b>
-<b class="nc">&nbsp;            coinUseCase.getTopTenCoinAssets().collect { result -&gt;</b>
-<b class="nc">&nbsp;                when (result) {</b>
-<b class="nc">&nbsp;                    is Error -&gt; _primaryAssetStateFlow.value = Error(result.error, result.message)</b>
-<b class="nc">&nbsp;                    is Loading -&gt; _primaryAssetStateFlow.value = Loading</b>
-<b class="nc">&nbsp;                    is Success -&gt; {</b>
-<b class="nc">&nbsp;                        topTenCoins = result.dataObject</b>
+<b class="fc">&nbsp;        viewModelScope.launch {</b>
+<b class="fc">&nbsp;            coinUseCase.getTopTenCoinAssets().collect { result -&gt;</b>
+<b class="fc">&nbsp;                when (result) {</b>
+<b class="pc">&nbsp;                    is Error -&gt; _primaryAssetStateFlow.value = Error(result.error, result.message)</b>
+<b class="fc">&nbsp;                    is Loading -&gt; _primaryAssetStateFlow.value = Loading</b>
+<b class="fc">&nbsp;                    is Success -&gt; {</b>
+<b class="fc">&nbsp;                        topTenCoins = result.dataObject</b>
 &nbsp;
-<b class="nc">&nbsp;                        _primaryAssetStateFlow.value = Success(topTenCoins[0])</b>
-<b class="nc">&nbsp;                        _secondaryAssetStateFlow.value = Success(topTenCoins[1])</b>
+<b class="fc">&nbsp;                        _primaryAssetStateFlow.value = Success(topTenCoins[0])</b>
+<b class="fc">&nbsp;                        _secondaryAssetStateFlow.value = Success(topTenCoins[1])</b>
 &nbsp;                    }
 &nbsp;                }
 &nbsp;            }
@@ -261,15 +261,14 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;    }
 &nbsp;
 &nbsp;    private fun getTopTenExchanges() {
-<b class="nc">&nbsp;        viewModelScope.launch {</b>
-<b class="nc">&nbsp;            exchangeUseCase.getTopTenExchanges().collect { result -&gt;</b>
-<b class="nc">&nbsp;                when (result) {</b>
-<b class="nc">&nbsp;                    is Error -&gt; {}</b>
-<b class="nc">&nbsp;                    is Loading -&gt; {}</b>
-<b class="nc">&nbsp;                    is Success -&gt; {</b>
-<b class="nc">&nbsp;                        val exchangeList = result.dataObject</b>
-&nbsp;
-<b class="nc">&nbsp;                        exchangeDataSelected.value = exchangeList</b>
+<b class="fc">&nbsp;        viewModelScope.launch {</b>
+<b class="fc">&nbsp;            exchangeUseCase.getTopTenExchangeAssets().collect { result -&gt;</b>
+<b class="fc">&nbsp;                when (result) {</b>
+<b class="pc">&nbsp;                    is Error -&gt; {}</b>
+<b class="pc">&nbsp;                    is Loading -&gt; {}</b>
+<b class="fc">&nbsp;                    is Success -&gt; {</b>
+<b class="fc">&nbsp;                        val exchangeList = result.dataObject</b>
+<b class="fc">&nbsp;                        exchangeDataSelected.postValue(exchangeList)</b>
 &nbsp;                    }
 &nbsp;                }
 &nbsp;            }
@@ -277,16 +276,17 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;    }
 &nbsp;
 &nbsp;    private fun getTopTenCoins() {
-<b class="nc">&nbsp;        viewModelScope.launch {</b>
-<b class="nc">&nbsp;            coinDataSelected.value = topTenCoins</b>
+<b class="fc">&nbsp;        viewModelScope.launch {</b>
+<b class="fc">&nbsp;            coinDataSelected.value = topTenCoins</b>
 &nbsp;        }
 &nbsp;    }
 &nbsp;
 &nbsp;    fun clickedExchanges() {
-<b class="nc">&nbsp;        getTopTenExchanges()</b>
+<b class="fc">&nbsp;        getTopTenExchanges()</b>
 &nbsp;    }
+&nbsp;
 &nbsp;    fun clickedCoins() {
-<b class="nc">&nbsp;        getTopTenCoins()</b>
+<b class="fc">&nbsp;        getTopTenCoins()</b>
 &nbsp;    }
 &nbsp;}
 </code>
@@ -312,7 +312,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2024-07-09 07:29</div>
+    <div style="float:right;">generated on 2024-07-10 05:14</div>
 </div>
 </body>
 </html>

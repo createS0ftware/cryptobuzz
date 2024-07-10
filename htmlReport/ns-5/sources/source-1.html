@@ -45,18 +45,18 @@ Current scope:     <a href="../../index.html">all classes</a>
   <td class="name">CoinCapRepositoryImpl</td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    100%
   </span>
   <span class="absValue">
-    (0/3)
+    (3/3)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    100%
   </span>
   <span class="absValue">
-    (0/6)
+    (6/6)
   </span>
 </td>
 </tr>
@@ -64,26 +64,26 @@ Current scope:     <a href="../../index.html">all classes</a>
     <td class="name">CoinCapRepositoryImpl$getTopTenCoins$2</td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    100%
   </span>
   <span class="absValue">
-    (0/1)
+    (1/1)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    50%
   </span>
   <span class="absValue">
-    (0/4)
+    (2/4)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    100%
   </span>
   <span class="absValue">
-    (0/4)
+    (3/3)
   </span>
 </td>
   </tr>
@@ -91,18 +91,18 @@ Current scope:     <a href="../../index.html">all classes</a>
     <td class="name">CoinCapRepositoryImpl$getTopTenCoins$3</td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    100%
   </span>
   <span class="absValue">
-    (0/1)
+    (1/1)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    100%
   </span>
   <span class="absValue">
-    (0/1)
+    (1/1)
   </span>
 </td>
   </tr>
@@ -110,26 +110,26 @@ Current scope:     <a href="../../index.html">all classes</a>
     <td class="name">CoinCapRepositoryImpl$getTopTenExchanges$2</td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    100%
   </span>
   <span class="absValue">
-    (0/1)
+    (1/1)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    50%
   </span>
   <span class="absValue">
-    (0/4)
+    (2/4)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    100%
   </span>
   <span class="absValue">
-    (0/6)
+    (5/5)
   </span>
 </td>
   </tr>
@@ -137,18 +137,18 @@ Current scope:     <a href="../../index.html">all classes</a>
     <td class="name">CoinCapRepositoryImpl$getTopTenExchanges$3</td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    100%
   </span>
   <span class="absValue">
-    (0/1)
+    (1/1)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    100%
   </span>
   <span class="absValue">
-    (0/1)
+    (1/1)
   </span>
 </td>
   </tr>
@@ -156,26 +156,26 @@ Current scope:     <a href="../../index.html">all classes</a>
   <td class="name"><strong>Total</strong></td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    100%
   </span>
   <span class="absValue">
-    (0/7)
+    (7/7)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    50%
   </span>
   <span class="absValue">
-    (0/8)
+    (4/8)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    100%
   </span>
   <span class="absValue">
-    (0/18)
+    (16/16)
   </span>
 </td>
 </tr>
@@ -198,26 +198,26 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;import javax.inject.Inject
 &nbsp;
 &nbsp;
-<b class="nc">&nbsp;class CoinCapRepositoryImpl @Inject constructor(private val apiService: APIService) :</b>
+<b class="fc">&nbsp;class CoinCapRepositoryImpl @Inject constructor(private val apiService: APIService) :</b>
 &nbsp;    CoinCapRepository {
 &nbsp;
-<b class="nc">&nbsp;    private val TOP_N = 10;</b>
+<b class="fc">&nbsp;    private val TOP_N = 10;</b>
 &nbsp;
 &nbsp;    override suspend fun getTopTenExchanges(): Flow&lt;CoinCapRepositoryResult&lt;List&lt;ExchangeObject&gt;&gt;&gt; =
-<b class="nc">&nbsp;        flow {</b>
-<b class="nc">&nbsp;            apiService.getExchanges()</b>
-<b class="nc">&nbsp;                .onSuccess {</b>
-<b class="nc">&nbsp;                    emit(CoinCapRepositoryResult.Success(it.data.take(TOP_N)))</b>
-<b class="nc">&nbsp;                }</b>
-<b class="nc">&nbsp;                .onFailure { emit(CoinCapRepositoryResult.Error(it, it.message)) }</b>
-<b class="nc">&nbsp;        }.onStart { emit(CoinCapRepositoryResult.Loading) }</b>
+<b class="fc">&nbsp;        flow {</b>
+<b class="fc">&nbsp;            apiService.getExchanges()</b>
+<b class="pc">&nbsp;                .onSuccess {</b>
+<b class="fc">&nbsp;                    emit(CoinCapRepositoryResult.Success(it.data.take(TOP_N)))</b>
+<b class="fc">&nbsp;                }</b>
+<b class="pc">&nbsp;                .onFailure { emit(CoinCapRepositoryResult.Error(it, it.message)) }</b>
+<b class="fc">&nbsp;        }.onStart { emit(CoinCapRepositoryResult.Loading) }</b>
 &nbsp;
 &nbsp;    override suspend fun getTopTenCoins(): Flow&lt;CoinCapRepositoryResult&lt;List&lt;CoinObject&gt;&gt;&gt; =
-<b class="nc">&nbsp;        flow&lt;CoinCapRepositoryResult&lt;List&lt;CoinObject&gt;&gt;&gt; {</b>
-<b class="nc">&nbsp;            apiService.getCoins()</b>
-<b class="nc">&nbsp;                .onSuccess { emit(CoinCapRepositoryResult.Success(it.data.take(TOP_N))) }</b>
-<b class="nc">&nbsp;                .onFailure { emit(CoinCapRepositoryResult.Error(it, it.message)) }</b>
-<b class="nc">&nbsp;        }.onStart { emit(CoinCapRepositoryResult.Loading) }</b>
+<b class="fc">&nbsp;        flow&lt;CoinCapRepositoryResult&lt;List&lt;CoinObject&gt;&gt;&gt; {</b>
+<b class="fc">&nbsp;            apiService.getCoins()</b>
+<b class="pc">&nbsp;                .onSuccess { emit(CoinCapRepositoryResult.Success(it.data.take(TOP_N))) }</b>
+<b class="pc">&nbsp;                .onFailure { emit(CoinCapRepositoryResult.Error(it, it.message)) }</b>
+<b class="fc">&nbsp;        }.onStart { emit(CoinCapRepositoryResult.Loading) }</b>
 &nbsp;
 &nbsp;}
 </code>
@@ -243,7 +243,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2024-07-09 07:29</div>
+    <div style="float:right;">generated on 2024-07-10 05:14</div>
 </div>
 </body>
 </html>

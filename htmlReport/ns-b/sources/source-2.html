@@ -45,105 +45,65 @@ Current scope:     <a href="../../index.html">all classes</a>
   <td class="name">ExchangeUseCase</td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    100%
   </span>
   <span class="absValue">
-    (0/3)
+    (4/4)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    70%
   </span>
   <span class="absValue">
-    (0/4)
+    (7/10)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    87.1%
   </span>
   <span class="absValue">
-    (0/21)
+    (27/31)
   </span>
 </td>
 </tr>
   <tr>
-    <td class="name">ExchangeUseCase$getTopTenExchanges$$inlined$map$1</td>
-<td class="coverageStat">
-  <span class="percent">
-    0%
-  </span>
-  <span class="absValue">
-    (0/2)
-  </span>
-</td>
-<td class="coverageStat">
-  <span class="percent">
-    0%
-  </span>
-  <span class="absValue">
-    (0/4)
-  </span>
-</td>
+    <td class="name">ExchangeUseCase$getTopTenExchangeAssets$$inlined$map$1</td>
   </tr>
   <tr>
-    <td class="name">ExchangeUseCase$getTopTenExchanges$$inlined$map$1$2</td>
-<td class="coverageStat">
-  <span class="percent">
-    0%
-  </span>
-  <span class="absValue">
-    (0/1)
-  </span>
-</td>
-<td class="coverageStat">
-  <span class="percent">
-    12.5%
-  </span>
-  <span class="absValue">
-    (1/8)
-  </span>
-</td>
-<td class="coverageStat">
-  <span class="percent">
-    0%
-  </span>
-  <span class="absValue">
-    (0/21)
-  </span>
-</td>
+    <td class="name">ExchangeUseCase$getTopTenExchangeAssets$$inlined$map$1$2</td>
   </tr>
   <tr>
-    <td class="name">ExchangeUseCase$getTopTenExchanges$$inlined$map$1$2$1</td>
+    <td class="name">ExchangeUseCase$getTopTenExchangeAssets$$inlined$map$1$2$1</td>
   </tr>
   <tr>
-    <td class="name">ExchangeUseCase$getTopTenExchanges$1</td>
+    <td class="name">ExchangeUseCase$getTopTenExchangeAssets$1</td>
   </tr>
 <tr>
   <td class="name"><strong>Total</strong></td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    100%
   </span>
   <span class="absValue">
-    (0/6)
+    (4/4)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    8.3%
+    70%
   </span>
   <span class="absValue">
-    (1/12)
+    (7/10)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    87.1%
   </span>
   <span class="absValue">
-    (0/46)
+    (27/31)
   </span>
 </td>
 </tr>
@@ -164,46 +124,46 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;import java.text.DecimalFormat
 &nbsp;import javax.inject.Inject
 &nbsp;
-<b class="nc">&nbsp;class ExchangeUseCase @Inject constructor(private val repository: CoinCapRepository) {</b>
-&nbsp;    suspend fun getTopTenExchanges(): Flow&lt;CoinCapRepositoryResult&lt;List&lt;AssetInfoData&gt;&gt;&gt; =
-<b class="nc">&nbsp;        repository.getTopTenExchanges()</b>
-<b class="nc">&nbsp;            .map { result -&gt;</b>
-&nbsp;                when (result) {
-&nbsp;                    is CoinCapRepositoryResult.Error -&gt; {
-&nbsp;                        CoinCapRepositoryResult.Error(result.error, result.message)
+<b class="fc">&nbsp;class ExchangeUseCase @Inject constructor(private val repository: CoinCapRepository) {</b>
+&nbsp;    suspend fun getTopTenExchangeAssets(): Flow&lt;CoinCapRepositoryResult&lt;List&lt;AssetInfoData&gt;&gt;&gt; =
+<b class="fc">&nbsp;        repository.getTopTenExchanges()</b>
+<b class="fc">&nbsp;            .map { result -&gt;</b>
+<b class="fc">&nbsp;                when (result) {</b>
+<b class="fc">&nbsp;                    is CoinCapRepositoryResult.Error -&gt; {</b>
+<b class="fc">&nbsp;                        CoinCapRepositoryResult.Error(result.error, result.message)</b>
 &nbsp;                    }
 &nbsp;
-&nbsp;                    is CoinCapRepositoryResult.Loading -&gt; {
-&nbsp;                        CoinCapRepositoryResult.Loading
+<b class="fc">&nbsp;                    is CoinCapRepositoryResult.Loading -&gt; {</b>
+<b class="fc">&nbsp;                        CoinCapRepositoryResult.Loading</b>
 &nbsp;                    }
 &nbsp;
-&nbsp;                    is CoinCapRepositoryResult.Success -&gt; {
-&nbsp;                        val topTenExchanges = result.dataObject
-&nbsp;                            .map { exchange -&gt;
-&nbsp;                                AssetInfoData(
-&nbsp;                                    exchange.name,
-&nbsp;                                    exchange.rank.toInt(),
-&nbsp;                                    getVolumeString(exchange.volumeUsd)
-&nbsp;                                )
+<b class="fc">&nbsp;                    is CoinCapRepositoryResult.Success -&gt; {</b>
+<b class="fc">&nbsp;                        val topTenExchanges = result.dataObject</b>
+<b class="fc">&nbsp;                            .map { exchange -&gt;</b>
+<b class="fc">&nbsp;                                AssetInfoData(</b>
+<b class="fc">&nbsp;                                    exchange.name,</b>
+<b class="fc">&nbsp;                                    exchange.rank.toInt(),</b>
+<b class="fc">&nbsp;                                    getVolumeString(exchange.volumeUsd)</b>
+<b class="fc">&nbsp;                                )</b>
 &nbsp;                            }
-&nbsp;                        CoinCapRepositoryResult.Success(topTenExchanges)
+<b class="fc">&nbsp;                        CoinCapRepositoryResult.Success(topTenExchanges)</b>
 &nbsp;                    }
-&nbsp;                }
+<b class="fc">&nbsp;                }</b>
 &nbsp;            }
 &nbsp;
 &nbsp;
 &nbsp;    private fun getVolumeString(volume: String): String {
-<b class="nc">&nbsp;        val billion = 1_000_000_000</b>
-<b class="nc">&nbsp;        val million = 1_000_000</b>
+<b class="fc">&nbsp;        val billion = 1_000_000_000</b>
+<b class="fc">&nbsp;        val million = 1_000_000</b>
 &nbsp;
-<b class="nc">&nbsp;        val number: Double = volume.toDouble()</b>
-<b class="nc">&nbsp;        val decimalFormat = DecimalFormat(&quot;0.00&quot;)</b>
-<b class="nc">&nbsp;        val sign = &quot;$&quot;</b>
+<b class="fc">&nbsp;        val number: Double = volume.toDouble()</b>
+<b class="fc">&nbsp;        val decimalFormat = DecimalFormat(&quot;0.00&quot;)</b>
+<b class="fc">&nbsp;        val sign = &quot;$&quot;</b>
 &nbsp;
-<b class="nc">&nbsp;        return when {</b>
-<b class="nc">&nbsp;            number &gt;= billion -&gt; {</b>
-<b class="nc">&nbsp;                val value = number / billion</b>
-<b class="nc">&nbsp;                &quot;\$${decimalFormat.format(value)} Billion&quot;</b>
+<b class="fc">&nbsp;        return when {</b>
+<b class="pc">&nbsp;            number &gt;= billion -&gt; {</b>
+<b class="fc">&nbsp;                val value = number / billion</b>
+<b class="fc">&nbsp;                &quot;\$${decimalFormat.format(value)} Billion&quot;</b>
 &nbsp;            }
 &nbsp;
 <b class="nc">&nbsp;            number &gt;= million -&gt; {</b>
@@ -244,7 +204,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2024-07-09 07:29</div>
+    <div style="float:right;">generated on 2024-07-10 05:14</div>
 </div>
 </body>
 </html>
