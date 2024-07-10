@@ -55,14 +55,13 @@ class DashboardViewModel @Inject constructor(
 
     private fun getTopTenExchanges() {
         viewModelScope.launch {
-            exchangeUseCase.getTopTenExchanges().collect { result ->
+            exchangeUseCase.getTopTenExchangeAssets().collect { result ->
                 when (result) {
                     is Error -> {}
                     is Loading -> {}
                     is Success -> {
                         val exchangeList = result.dataObject
-
-                        exchangeDataSelected.value = exchangeList
+                        exchangeDataSelected.postValue(exchangeList)
                     }
                 }
             }
@@ -78,6 +77,7 @@ class DashboardViewModel @Inject constructor(
     fun clickedExchanges() {
         getTopTenExchanges()
     }
+
     fun clickedCoins() {
         getTopTenCoins()
     }

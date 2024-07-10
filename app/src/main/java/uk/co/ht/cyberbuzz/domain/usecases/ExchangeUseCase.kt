@@ -9,7 +9,7 @@ import java.text.DecimalFormat
 import javax.inject.Inject
 
 class ExchangeUseCase @Inject constructor(private val repository: CoinCapRepository) {
-    suspend fun getTopTenExchanges(): Flow<CoinCapRepositoryResult<List<AssetInfoData>>> =
+    suspend fun getTopTenExchangeAssets(): Flow<CoinCapRepositoryResult<List<AssetInfoData>>> =
         repository.getTopTenExchanges()
             .map { result ->
                 when (result) {

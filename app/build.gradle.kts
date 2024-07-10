@@ -126,6 +126,10 @@ dependencies {
     testImplementation(libs.junit.jupiter.api)
     testRuntimeOnly(libs.junit.jupiter.engine)
 
+    testImplementation(libs.androidx.core.testing)
+    testImplementation(libs.robolectric)
+    testImplementation(libs.kotlinx.coroutines.test.v164)
+
     testImplementation(libs.junit.jupiter)
     testImplementation(libs.junit.jupiter.params)
     testRuntimeOnly(libs.junit.platform.launcher)
