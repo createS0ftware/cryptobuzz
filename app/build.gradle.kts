@@ -1,5 +1,3 @@
-import org.gradle.kotlin.dsl.provider.inClassPathMode
-
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
@@ -82,13 +80,14 @@ android {
 
 dependencies {
 
+    debugImplementation(libs.androidx.ui.tooling)
     //testImplementation(libs.testng)
     kapt(libs.hilt.compiler)
 
 
     implementation(libs.androidx.compose.material)
     implementation(libs.androidx.compose.material.iconsExtended)
-
+    implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -105,7 +104,7 @@ dependencies {
     implementation(libs.androidx.compose.animation)
 
     implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.kotlin.bom)
+    implementation(platform(libs.kotlin.bom))
 
     implementation(libs.accompanist.systemuicontroller)
 
@@ -116,6 +115,8 @@ dependencies {
     implementation(libs.androidx.hilt.navigation.compose)
 
     implementation(project(":base"))
+
+    //Test dependencies
 
     testImplementation(libs.jetbrains.kotlinx.coroutines.test)
 
@@ -137,6 +138,8 @@ dependencies {
 
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
+
+    debugImplementation(libs.ui.tooling)
 }
 
 tasks.withType<Test> {

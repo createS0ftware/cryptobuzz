@@ -3,8 +3,11 @@ package uk.co.ht.cryptobuzz.presentation.dashboard
 import CryptoBuzzTheme
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import dagger.hilt.android.AndroidEntryPoint
 import uk.co.ht.cryptobuzz.presentation.components.CryptoBuzzTable
 
@@ -12,9 +15,14 @@ import uk.co.ht.cryptobuzz.presentation.components.CryptoBuzzTable
 class DashboardActivity : ComponentActivity() {
 
     private val dashboardViewModel: DashboardViewModel by viewModels()
+    private val isBackPressed = mutableStateOf(false)
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val backPressedDispatcher = this.onBackPressedDispatcher
+
 
         dashboardViewModel.exchangeDataSelected.observe(this) {
             setContent {
@@ -33,9 +41,28 @@ class DashboardActivity : ComponentActivity() {
         }
 
         setContent {
-            CryptoBuzzTheme {
-                DashboardScreen()
+            val backPressed = remember { isBackPressed }
+            if (!backPressed.value) {
+                CryptoBuzzTheme {
+                    DashboardScreen()
+                }
             }
         }
+
+        backPressedDispatcher.addCallback(this,
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    if (!isBackPressed.value) {
+                        isBackPressed.value = true
+                        setContent {
+                            CryptoBuzzTheme {
+                                DashboardScreen()
+                            }
+                        }
+                    } else {
+                        finish()
+                    }
+                }
+            })
     }
 }

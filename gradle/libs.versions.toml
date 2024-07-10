@@ -29,9 +29,11 @@ mockkAgent = "1.13.11"
 mockkAndroid = "1.13.11"
 mockkAndroidVersion = "1.13.11"
 mockkMockk = "1.13.11"
+navigationCompose = "2.7.7"
 retrofit = "2.9.0"
 robolectric = "4.9"
 testng = "6.9.6"
+uiTooling = "1.6.8"
 
 [libraries]
 adapter-rxjava3 = { module = "com.squareup.retrofit2:adapter-rxjava3", version.ref = "adapterRxjava3" }
@@ -44,6 +46,7 @@ androidx-activity-compose = { group = "androidx.activity", name = "activity-comp
 
 accompanist-systemuicontroller = { module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "accompanist" }
 
+androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
 androidx-ui = { group = "androidx.compose.ui", name = "ui" }
 androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
 androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
@@ -89,6 +92,8 @@ junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", vers
 junit-jupiter-params = { module = "org.junit.jupiter:junit-jupiter-params" }
 junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher" }
 robolectric = { module = "org.robolectric:robolectric", version.ref = "robolectric" }
+androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling", version.ref = "uiTooling" }
+ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

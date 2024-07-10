@@ -36,6 +36,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -60,19 +61,19 @@ import uk.co.ht.cryptobuzz.presentation.components.UpdateImageDisplay
 import uk.co.ht.cryptobuzz.presentation.components.UpdateTextDisplay
 import uk.co.ht.cyberbuzz.common.utils.getDrawableIdByName
 
-
 private val HighlightCardWidth = 170.dp
 private val HighlightCardPadding = 16.dp
 
 @Composable
-fun DashboardScreen(dashboardViewModel: DashboardViewModel? = hiltViewModel()) {
-
+fun DashboardScreen(
+    dashboardViewModel: DashboardViewModel? = hiltViewModel()
+) {
     val isDarkTheme = isSystemInDarkTheme()
-
     var state by remember {
         mutableStateOf(UIState.Loading)
     }
 
+    val coroutineScope = rememberCoroutineScope()
     Surface(
         color = if (isDarkTheme) Color.Black else Color.White,
         modifier = Modifier.fillMaxSize()
@@ -120,6 +121,7 @@ fun DashboardScreen(dashboardViewModel: DashboardViewModel? = hiltViewModel()) {
 fun DashboardGrid(
     dashboardViewModel: DashboardViewModel? = null
 ) {
+
     val screenWidth = LocalConfiguration.current.screenWidthDp.dp
     val spacing = 8.dp
     val totalSpacing =
